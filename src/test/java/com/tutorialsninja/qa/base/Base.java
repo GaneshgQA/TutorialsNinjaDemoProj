@@ -73,5 +73,17 @@ public class Base {
 		return driver;
 
 	}
+	
+	public String getPageTitle(WebDriver driver) {
+		
+		return driver.getTitle();		
+		
+	}
+	
+	public String getPageURL(WebDriver driver) {
+		
+		return driver.getCurrentUrl();
+		
+	}
 
 }

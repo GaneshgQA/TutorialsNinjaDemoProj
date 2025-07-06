@@ -10,6 +10,7 @@
       <class name="com.tutorialsninjademo.qa.testcases.RegisterTest"/>
       <class name="com.tutorialsninjademo.qa.testcases.LoginTest"/>
       <class name="com.tutorialsninjademo.qa.testcases.SearchTest"/>
+      <class name="com.tutorialsninjademo.qa.testcases.LogoutTest"/>
       
     </classes>
   </test> <!-- Test -->
