@@ -129,7 +129,6 @@ public class SearchTest extends Base {
 		homePage.enterProductIntoSearchField(dataProp.getProperty("searchTermForMultipleProducts"));
 		homePage.clickOnSearchButton();
 		searchResultPage = new SearchResultPage(driver);
-		//System.out.println("Test"+searchResultPage.retrieveProductMacBookText());
 		Assert.assertTrue(searchResultPage.displayStatusOfProductiMacInSearchResult());
 		Assert.assertEquals(searchResultPage.retrieveProductMacBookText(),dataProp.getProperty("expectedproductMacBookText"), "MacBook text not displayed");
 		Assert.assertTrue(searchResultPage.displayStatusOfProductMacBookAir());
