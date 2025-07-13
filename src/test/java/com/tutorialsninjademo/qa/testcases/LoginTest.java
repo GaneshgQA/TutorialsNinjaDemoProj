@@ -76,7 +76,7 @@ public class LoginTest extends Base {
 		loginPage.enterUserName(Utilities.generateEmailWithTimeStamp());
 		loginPage.enterPassword(dataProp.getProperty("invalidPassword"));
 		loginPage.clickLoginButton();
-
+		//checking if remote push is working fine
 //		driver.findElement(By.id("input-email")).sendKeys(Utilities.generateEmailWithTimeStamp());
 //		driver.findElement(By.id("input-password")).sendKeys(dataProp.getProperty("invalidPassword"));
 //		driver.findElement(By.xpath("//input[@value='Login']")).click();
