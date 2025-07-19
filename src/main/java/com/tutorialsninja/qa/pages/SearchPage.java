@@ -38,6 +38,14 @@ public class SearchPage {
 	@FindBy(xpath = "//select[@name='category_id']")
 	private WebElement catagoryDropDownField;
 	
+	@FindBy(name = "sub_category")
+	private WebElement searchInSubcatagoriesCheckboxField;
+	
+	public void selectInSubcatagoriesCheckBoxField() {
+		
+		elementUtils.clickOnElements(searchInSubcatagoriesCheckboxField);
+		
+	}
 	public void selectOptionFromCatagoryDropdownField(int indexNumber) {
 		
 		Select select = new Select(catagoryDropDownField);

@@ -188,4 +188,22 @@ public class SearchTest extends Base {
 		
 	}
 	
+	@Test(priority = 11)
+	public void verifySearchByUsingParentCatagoryAndSearchInSubcatagoriesOption() {
+	
+		homePage = new HomePage(driver);
+		homePage.clickOnSearchButton();	
+		searchPage = new SearchPage(driver);
+		searchPage.enterSearchTermIntoSearchCriteriaField(dataProp.getProperty("existingProductInSubCatagory"));
+		searchPage.selectOptionFromCatagoryDropdownField(1);
+		searchPage.clickOnSearchButton();
+		searchResultPage = new SearchResultPage(driver);
+		String actualNoSearchMessage = searchResultPage.retrieveNoProductFoundMessage();
+		Assert.assertEquals(actualNoSearchMessage, dataProp.getProperty("invalidProductSearchMessage"),"No product in search result message is not displayed");
+		searchPage.selectInSubcatagoriesCheckBoxField();
+		homePage.clickOnSearchButton();
+		Assert.assertTrue(searchResultPage.displayStatusOfProductiMacInSearchResult());
+		
+	}
+	
 }
