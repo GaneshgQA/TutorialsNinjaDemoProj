@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-07-19T21:58:04 IST" name="Default suite" finished-at="2025-07-19T21:58:42 IST" duration-ms="37601">
+  <suite started-at="2025-07-27T15:55:21 IST" name="Default suite" finished-at="2025-07-27T15:57:24 IST" duration-ms="122362">
     <groups>
     </groups>
-    <test started-at="2025-07-19T21:58:04 IST" name="Default test" finished-at="2025-07-19T21:58:42 IST" duration-ms="37601">
+    <test started-at="2025-07-27T15:55:21 IST" name="Default test" finished-at="2025-07-27T15:57:24 IST" duration-ms="122362">
       <class name="com.tutorialsninjademo.qa.testcases.SearchTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.tutorialsninjademo.qa.testcases.SearchTest@4c163e3]" started-at="2025-07-19T21:58:04 IST" name="setUp" finished-at="2025-07-19T21:58:31 IST" duration-ms="27528" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.tutorialsninjademo.qa.testcases.SearchTest@4d0d9fe7]" started-at="2025-07-27T15:55:22 IST" name="setUp" finished-at="2025-07-27T15:56:19 IST" duration-ms="57276" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="verifySearchByUsingParentCatagoryAndSearchInSubcatagoriesOption()[pri:11, instance:com.tutorialsninjademo.qa.testcases.SearchTest@4c163e3]" started-at="2025-07-19T21:58:31 IST" name="verifySearchByUsingParentCatagoryAndSearchInSubcatagoriesOption" finished-at="2025-07-19T21:58:39 IST" duration-ms="7311" status="PASS">
+        <test-method signature="verifyProductInSearchResultsInListViewAndGridView()[pri:12, instance:com.tutorialsninjademo.qa.testcases.SearchTest@4d0d9fe7]" started-at="2025-07-27T15:56:19 IST" name="verifyProductInSearchResultsInListViewAndGridView" finished-at="2025-07-27T15:57:14 IST" duration-ms="54890" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifySearchByUsingParentCatagoryAndSearchInSubcatagoriesOption -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tutorialsninjademo.qa.testcases.SearchTest@4c163e3]" started-at="2025-07-19T21:58:39 IST" name="tearDown" finished-at="2025-07-19T21:58:42 IST" duration-ms="2696" status="PASS">
+        </test-method> <!-- verifyProductInSearchResultsInListViewAndGridView -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tutorialsninjademo.qa.testcases.SearchTest@4d0d9fe7]" started-at="2025-07-27T15:57:14 IST" name="tearDown" finished-at="2025-07-27T15:57:24 IST" duration-ms="10114" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

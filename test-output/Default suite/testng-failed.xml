@@ -7,7 +7,7 @@
         <methods>
           <include name="setUp"/>
           <include name="tearDown"/>
-          <include name="verifySearchResultingInMultipleProducts"/>
+          <include name="verifyProductInSearchResultsInListViewAndGridView"/>
         </methods>
       </class> <!-- com.tutorialsninjademo.qa.testcases.SearchTest -->
     </classes>
