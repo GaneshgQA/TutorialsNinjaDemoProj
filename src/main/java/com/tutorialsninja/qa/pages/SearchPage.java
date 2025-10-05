@@ -67,6 +67,14 @@ public class SearchPage {
 	@FindBy(id = "grid-view")
 	private WebElement gridOptin;
 	
+	@FindBy(id = "compare-total")
+	private WebElement productCompareLink;
+	
+	public void clickOnProductCompareLink() {
+		
+		elementUtils.clickOnElements(productCompareLink);
+		
+	}
 	public void selectGridOption() {
 		
 		elementUtils.clickOnElements(gridOptin);

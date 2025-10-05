@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 import com.tutorialsninja.qa.base.Base;
 import com.tutorialsninja.qa.pages.HomePage;
 import com.tutorialsninja.qa.pages.LoginPage;
+import com.tutorialsninja.qa.pages.ProductComparisonPage;
 import com.tutorialsninja.qa.pages.ProductDisplayPage;
 import com.tutorialsninja.qa.pages.SearchPage;
 import com.tutorialsninja.qa.pages.SearchResultPage;
@@ -20,7 +21,8 @@ public class SearchTest extends Base {
 	HomePage homePage;
 	SearchResultPage searchResultPage;
 	SearchPage searchPage;
-	ProductDisplayPage productDisplayPage;;
+	ProductDisplayPage productDisplayPage;
+	ProductComparisonPage productComparisonPage;
 
 	public SearchTest() {
 
@@ -223,38 +225,75 @@ public class SearchTest extends Base {
 		searchPage.selectListViewOption();
 		searchPage.selectAddToCartOption();
 		System.out.println(searchPage.getSuccessMessage());
-		Assert.assertTrue(searchPage.getSuccessMessage().contains(dataProp.getProperty("expectedMessageSelectAddToCartOption")));
+		Assert.assertTrue(
+				searchPage.getSuccessMessage().contains(dataProp.getProperty("expectedMessageSelectAddToCartOption")));
 		Thread.sleep(8000);
 		searchPage.selectAddToWishListOption();
 		Thread.sleep(5000);
-		Assert.assertTrue(searchPage.getSuccessMessage().contains(dataProp.getProperty("expectedMessageSelectAddToWishListOption")));
+		Assert.assertTrue(searchPage.getSuccessMessage()
+				.contains(dataProp.getProperty("expectedMessageSelectAddToWishListOption")));
 		Thread.sleep(5000);
 		searchPage.selectCompareThisProductOption();
 		Thread.sleep(5000);
-		Assert.assertTrue(searchPage.getSuccessMessage().contains(dataProp.getProperty("expectedMessageSelectCompareThisProductOption")));
+		Assert.assertTrue(searchPage.getSuccessMessage()
+				.contains(dataProp.getProperty("expectedMessageSelectCompareThisProductOption")));
 		searchPage.selectProductImage();
 		productDisplayPage = new ProductDisplayPage(driver);
 		Assert.assertTrue(productDisplayPage.didWeNavigateToProuctDisplayPage());
-		
-		//From grid view option
+
+		// From grid view option
 		homePage.enterProductIntoSearchField(dataProp.getProperty("validProductiMac"));
 		homePage.clickOnSearchButton();
 		searchPage = new SearchPage(driver);
-		searchPage.selectGridOption();;
+		searchPage.selectGridOption();
+		;
 		searchPage.selectAddToCartOption();
 		System.out.println(searchPage.getSuccessMessage());
-		Assert.assertTrue(searchPage.getSuccessMessage().contains(dataProp.getProperty("expectedMessageSelectAddToCartOption1")));
+		Assert.assertTrue(
+				searchPage.getSuccessMessage().contains(dataProp.getProperty("expectedMessageSelectAddToCartOption1")));
 		Thread.sleep(8000);
 		searchPage.selectAddToWishListOption();
 		Thread.sleep(5000);
-		Assert.assertTrue(searchPage.getSuccessMessage().contains(dataProp.getProperty("expectedMessageSelectAddToWishListOption2")));
+		Assert.assertTrue(searchPage.getSuccessMessage()
+				.contains(dataProp.getProperty("expectedMessageSelectAddToWishListOption2")));
 		Thread.sleep(5000);
 		searchPage.selectCompareThisProductOption();
 		Thread.sleep(5000);
-		Assert.assertTrue(searchPage.getSuccessMessage().contains(dataProp.getProperty("expectedMessageSelectCompareThisProductOption3")));
+		Assert.assertTrue(searchPage.getSuccessMessage()
+				.contains(dataProp.getProperty("expectedMessageSelectCompareThisProductOption3")));
 		searchPage.selectProductImage();
 		productDisplayPage = new ProductDisplayPage(driver);
 		Assert.assertTrue(productDisplayPage.didWeNavigateToProuctDisplayPage());
+
+	}
+
+	@Test(priority = 13)
+	public void verifyMultipleProductInSearchResultsInListViewAndGridView() {
+
+		homePage = new HomePage(driver);
+		homePage.enterProductIntoSearchField(dataProp.getProperty("searchTermForMultipleProductSearch"));
+		homePage.clickOnSearchButton();
+		searchResultPage = new SearchResultPage(driver);
+		Assert.assertTrue(searchResultPage.getNumberOfProductsDisplayedInSearchResult() > 1);
+		searchPage = new SearchPage(driver);
+		searchPage.selectListViewOption();
+		Assert.assertTrue(searchResultPage.getNumberOfProductsDisplayedInSearchResult() > 1);
+		searchPage.selectGridOption();
+		Assert.assertTrue(searchResultPage.getNumberOfProductsDisplayedInSearchResult() > 1);
+
+	}
+
+	@Test(priority = 14)
+	public void verifyNavigationToProductComparePage() {
+
+		homePage = new HomePage(driver);
+		homePage.enterProductIntoSearchField(dataProp.getProperty("validProductiMac"));
+		homePage.clickOnSearchButton();
+		searchPage = new SearchPage(driver);
+		searchPage.clickOnProductCompareLink();
+
+		productComparisonPage = new ProductComparisonPage(driver);
+		productComparisonPage.didWeNavigateToProductComparisionPage();
 
 	}
 

@@ -6,8 +6,8 @@
       <class name="com.tutorialsninjademo.qa.testcases.SearchTest">
         <methods>
           <include name="setUp"/>
+          <include name="verifyMultipleProductInSearchResultsInListViewAndGridView"/>
           <include name="tearDown"/>
-          <include name="verifyProductInSearchResultsInListViewAndGridView"/>
         </methods>
       </class> <!-- com.tutorialsninjademo.qa.testcases.SearchTest -->
     </classes>

@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-07-27T15:55:21 IST" name="Default suite" finished-at="2025-07-27T15:57:24 IST" duration-ms="122362">
+  <suite started-at="2025-10-05T13:34:30 IST" name="Default suite" finished-at="2025-10-05T13:35:17 IST" duration-ms="47000">
     <groups>
     </groups>
-    <test started-at="2025-07-27T15:55:21 IST" name="Default test" finished-at="2025-07-27T15:57:24 IST" duration-ms="122362">
+    <test started-at="2025-10-05T13:34:30 IST" name="Default test" finished-at="2025-10-05T13:35:17 IST" duration-ms="47000">
       <class name="com.tutorialsninjademo.qa.testcases.SearchTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.tutorialsninjademo.qa.testcases.SearchTest@4d0d9fe7]" started-at="2025-07-27T15:55:22 IST" name="setUp" finished-at="2025-07-27T15:56:19 IST" duration-ms="57276" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.tutorialsninjademo.qa.testcases.SearchTest@312aa7c]" started-at="2025-10-05T13:34:30 IST" name="setUp" finished-at="2025-10-05T13:35:12 IST" duration-ms="42171" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="verifyProductInSearchResultsInListViewAndGridView()[pri:12, instance:com.tutorialsninjademo.qa.testcases.SearchTest@4d0d9fe7]" started-at="2025-07-27T15:56:19 IST" name="verifyProductInSearchResultsInListViewAndGridView" finished-at="2025-07-27T15:57:14 IST" duration-ms="54890" status="PASS">
+        <test-method signature="verifyNavigationToProductComparePage()[pri:14, instance:com.tutorialsninjademo.qa.testcases.SearchTest@312aa7c]" started-at="2025-10-05T13:35:12 IST" name="verifyNavigationToProductComparePage" finished-at="2025-10-05T13:35:16 IST" duration-ms="3619" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyProductInSearchResultsInListViewAndGridView -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tutorialsninjademo.qa.testcases.SearchTest@4d0d9fe7]" started-at="2025-07-27T15:57:14 IST" name="tearDown" finished-at="2025-07-27T15:57:24 IST" duration-ms="10114" status="PASS">
+        </test-method> <!-- verifyNavigationToProductComparePage -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tutorialsninjademo.qa.testcases.SearchTest@312aa7c]" started-at="2025-10-05T13:35:16 IST" name="tearDown" finished-at="2025-10-05T13:35:17 IST" duration-ms="1122" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
