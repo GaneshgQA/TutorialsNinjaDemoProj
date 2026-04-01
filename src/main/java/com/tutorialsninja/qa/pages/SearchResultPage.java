@@ -46,6 +46,25 @@ public class SearchResultPage {
 
 	@FindBy(id = "input-search")
 	private WebElement searchCriteriaField;
+	
+	@FindBy(id = "input-sort")
+	private WebElement sortByDropDownField;
+	
+	@FindBy(xpath = "(//div[@class='product-thumb']//h4//a)[1]")
+	private WebElement firstProductInSearchResult;
+	
+	public String getFirstProductInSearchResult() {
+		
+		return elementUtils.getTextOfElement(firstProductInSearchResult);
+		
+	}
+	
+	public void selectOptionInSortByDropDownField(String optionText) {
+		
+		elementUtils.selectOptionInDropDownFieldUsingOptionText(noProductMessage, optionText);
+		
+	}
+	
 
 	public String getPlaceholderTextOfSearchCriteriaField() {
 

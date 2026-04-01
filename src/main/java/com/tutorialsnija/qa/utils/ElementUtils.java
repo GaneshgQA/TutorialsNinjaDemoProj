@@ -3,6 +3,7 @@ package com.tutorialsnija.qa.utils;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class ElementUtils {
 
@@ -72,6 +73,16 @@ public class ElementUtils {
 		}
 
 		return searchBoxFieldPlaceHolderText;
+	}
+	
+	public void selectOptionInDropDownFieldUsingOptionText(WebElement element, String optionText) {
+		
+		if(isElementDisplayed(element) && isElementEnabled(element)) {
+			
+			Select select = new Select(element);
+			select.selectByContainsVisibleText(optionText);
+			
+		}
 	}
 	
 }

@@ -6,8 +6,22 @@
       <class name="com.tutorialsninjademo.qa.testcases.SearchTest">
         <methods>
           <include name="setUp"/>
+          <include name="verifySortingProductsInSearchResultPage"/>
+          <include name="verifySearchByUsingParentCatagoryAndSearchInSubcatagoriesOption"/>
+          <include name="verifySearchinForProductUsingSomeTextInDescription"/>
           <include name="verifyMultipleProductInSearchResultsInListViewAndGridView"/>
+          <include name="verifySearchFieldsPlaceholders"/>
+          <include name="verifyMultipleProductsInSearchResult"/>
+          <include name="verifySearchWithInvalidProduct"/>
+          <include name="verifySearchBySelectingSubCategory"/>
+          <include name="verifySearchResultingInMultipleProducts"/>
+          <include name="verifySearchWithoutAnyProduct"/>
+          <include name="verifySearchAfterLogin"/>
+          <include name="verifySearchWithValidProduct"/>
           <include name="tearDown"/>
+          <include name="verifySearchingForProductUsingSearchCriteriaField"/>
+          <include name="verifyProductInSearchResultsInListViewAndGridView"/>
+          <include name="verifyNavigationToProductComparePage"/>
         </methods>
       </class> <!-- com.tutorialsninjademo.qa.testcases.SearchTest -->
     </classes>

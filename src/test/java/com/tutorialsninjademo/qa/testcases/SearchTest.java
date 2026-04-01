@@ -81,6 +81,7 @@ public class SearchTest extends Base {
 
 		homePage = new HomePage(driver);
 		homePage.clickOnSearchButton();
+		//Test
 
 //		driver.findElement(By.name("search")).sendKeys(dataProp.getProperty("invalidProduct"));
 //		driver.findElement(By.xpath("(//button[contains(@class,'btn-default')])[1]")).click();
@@ -105,6 +106,7 @@ public class SearchTest extends Base {
 		homePage.enterProductIntoSearchField(dataProp.getProperty("validProduct"));
 		homePage.clickOnSearchButton();
 		searchResultPage = new SearchResultPage(driver);
+		Assert.assertTrue(searchResultPage.displayStatusOfValidProduct(), "Valid hp product is not displayed");
 		Assert.assertTrue(searchResultPage.displayStatusOfValidProduct(), "Valid hp product is not displayed");
 
 	}
@@ -295,6 +297,20 @@ public class SearchTest extends Base {
 		productComparisonPage = new ProductComparisonPage(driver);
 		productComparisonPage.didWeNavigateToProductComparisionPage();
 
+	}
+	
+	@Test(priority = 15)
+	public void verifySortingProductsInSearchResultPage() {
+		
+		homePage = new HomePage(driver);
+		homePage.enterProductIntoSearchField(dataProp.getProperty("searchTermForMultipleProductSearch"));
+		homePage.clickOnSearchButton();
+		
+		searchResultPage = new SearchResultPage(driver);
+		Assert.assertTrue(searchResultPage.getNumberOfProductsDisplayedInSearchResult()>1);
+		
+		searchResultPage.selectOptionInSortByDropDownField(dataProp.getProperty("sortOption1"));
+		
 	}
 
 }
