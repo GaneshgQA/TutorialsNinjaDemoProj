@@ -3,27 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tutorialsninjademo.qa.testcases.SearchTest">
+      <class name="com.tutorialsninjademo.qa.testcases.LoginTest">
         <methods>
-          <include name="setUp"/>
-          <include name="verifySortingProductsInSearchResultPage"/>
-          <include name="verifySearchByUsingParentCatagoryAndSearchInSubcatagoriesOption"/>
-          <include name="verifySearchinForProductUsingSomeTextInDescription"/>
-          <include name="verifyMultipleProductInSearchResultsInListViewAndGridView"/>
-          <include name="verifySearchFieldsPlaceholders"/>
-          <include name="verifyMultipleProductsInSearchResult"/>
-          <include name="verifySearchWithInvalidProduct"/>
-          <include name="verifySearchBySelectingSubCategory"/>
-          <include name="verifySearchResultingInMultipleProducts"/>
-          <include name="verifySearchWithoutAnyProduct"/>
-          <include name="verifySearchAfterLogin"/>
-          <include name="verifySearchWithValidProduct"/>
+          <include name="verifyUIOfLoginPage"/>
           <include name="tearDown"/>
-          <include name="verifySearchingForProductUsingSearchCriteriaField"/>
-          <include name="verifyProductInSearchResultsInListViewAndGridView"/>
-          <include name="verifyNavigationToProductComparePage"/>
+          <include name="setUp"/>
         </methods>
-      </class> <!-- com.tutorialsninjademo.qa.testcases.SearchTest -->
+      </class> <!-- com.tutorialsninjademo.qa.testcases.LoginTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

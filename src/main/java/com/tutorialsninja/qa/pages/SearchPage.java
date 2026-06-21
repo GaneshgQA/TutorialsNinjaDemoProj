@@ -160,7 +160,9 @@ public class SearchPage {
 	
 	public boolean isProductHavingDescriptionTextDisplayedInSearchResult() {
 		
-		return productHavingSearchTextInDescription.isDisplayed();
+		//return productHavingSearchTextInDescription.isDisplayed();
+		
+	 return elementUtils.isElementDisplayed(productHavingSearchTextInDescription);
 		
 	}
 
