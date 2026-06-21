@@ -61,7 +61,7 @@ public class SearchResultPage {
 	
 	public void selectOptionInSortByDropDownField(String optionText) {
 		
-		elementUtils.selectOptionInDropDownFieldUsingOptionText(noProductMessage, optionText);
+		elementUtils.selectOptionInDropDownFieldUsingOptionText(sortByDropDownField, optionText);
 		
 	}
 	

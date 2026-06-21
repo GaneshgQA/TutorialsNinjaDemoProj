@@ -300,7 +300,7 @@ public class SearchTest extends Base {
 	}
 	
 	@Test(priority = 15)
-	public void verifySortingProductsInSearchResultPage() {
+	public void verifySortingProductsInSearchResultPage() throws InterruptedException {
 		
 		homePage = new HomePage(driver);
 		homePage.enterProductIntoSearchField(dataProp.getProperty("searchTermForMultipleProductSearch"));
@@ -308,6 +308,7 @@ public class SearchTest extends Base {
 		
 		searchResultPage = new SearchResultPage(driver);
 		Assert.assertTrue(searchResultPage.getNumberOfProductsDisplayedInSearchResult()>1);
+		Thread.sleep(5000);
 		
 		searchResultPage.selectOptionInSortByDropDownField(dataProp.getProperty("sortOption1"));
 		
