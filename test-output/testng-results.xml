@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-06-21T13:49:40 IST" name="Default suite" finished-at="2026-06-21T13:50:50 IST" duration-ms="70174">
+  <suite started-at="2026-06-27T13:17:24 IST" name="Default suite" finished-at="2026-06-27T13:18:41 IST" duration-ms="77911">
     <groups>
     </groups>
-    <test started-at="2026-06-21T13:49:40 IST" name="Default test" finished-at="2026-06-21T13:50:50 IST" duration-ms="70174">
+    <test started-at="2026-06-27T13:17:24 IST" name="Default test" finished-at="2026-06-27T13:18:41 IST" duration-ms="77911">
       <class name="com.tutorialsninjademo.qa.testcases.SearchTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.tutorialsninjademo.qa.testcases.SearchTest@536f2a7e]" started-at="2026-06-21T13:49:40 IST" name="setUp" finished-at="2026-06-21T13:50:30 IST" duration-ms="50066" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.tutorialsninjademo.qa.testcases.SearchTest@536f2a7e]" started-at="2026-06-27T13:17:24 IST" name="setUp" finished-at="2026-06-27T13:18:29 IST" duration-ms="65364" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="verifySortingProductsInSearchResultPage()[pri:15, instance:com.tutorialsninjademo.qa.testcases.SearchTest@536f2a7e]" started-at="2026-06-21T13:50:30 IST" name="verifySortingProductsInSearchResultPage" finished-at="2026-06-21T13:50:45 IST" duration-ms="15201" status="PASS">
+        <test-method signature="verifySortingProductsInSearchResultPage()[pri:15, instance:com.tutorialsninjademo.qa.testcases.SearchTest@536f2a7e]" started-at="2026-06-27T13:18:29 IST" name="verifySortingProductsInSearchResultPage" finished-at="2026-06-27T13:18:40 IST" duration-ms="11058" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifySortingProductsInSearchResultPage -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tutorialsninjademo.qa.testcases.SearchTest@536f2a7e]" started-at="2026-06-21T13:50:45 IST" name="tearDown" finished-at="2026-06-21T13:50:50 IST" duration-ms="4816" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tutorialsninjademo.qa.testcases.SearchTest@536f2a7e]" started-at="2026-06-27T13:18:40 IST" name="tearDown" finished-at="2026-06-27T13:18:41 IST" duration-ms="1380" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

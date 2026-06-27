@@ -46,25 +46,51 @@ public class SearchResultPage {
 
 	@FindBy(id = "input-search")
 	private WebElement searchCriteriaField;
-	
+
 	@FindBy(id = "input-sort")
 	private WebElement sortByDropDownField;
-	
+
 	@FindBy(xpath = "(//div[@class='product-thumb']//h4//a)[1]")
 	private WebElement firstProductInSearchResult;
-	
+
+	@FindBy(xpath = "(//div[@class='product-thumb']//h4//a)[2]")
+	private WebElement secondProductInSearchResult;
+
+	@FindBy(xpath = "(//div[@class='product-thumb']//h4//a)[3]")
+	private WebElement thirdProductInSearchResult;
+
+	@FindBy(xpath = "(//div[@class='product-thumb']//h4//a)[4]")
+	private WebElement fourthProductInSearchResult;
+
 	public String getFirstProductInSearchResult() {
-		
+
 		return elementUtils.getTextOfElement(firstProductInSearchResult);
-		
+
 	}
-	
+
+	public String getSecondProductInSearchResult() {
+
+		return elementUtils.getTextOfElement(secondProductInSearchResult);
+
+	}
+
+	public String getThirdProductInSearchResult() {
+
+		return elementUtils.getTextOfElement(thirdProductInSearchResult);
+
+	}
+
+	public String getFourthProductInSearchResult() {
+
+		return elementUtils.getTextOfElement(fourthProductInSearchResult);
+
+	}
+
 	public void selectOptionInSortByDropDownField(String optionText) {
-		
+
 		elementUtils.selectOptionInDropDownFieldUsingOptionText(sortByDropDownField, optionText);
-		
+
 	}
-	
 
 	public String getPlaceholderTextOfSearchCriteriaField() {
 

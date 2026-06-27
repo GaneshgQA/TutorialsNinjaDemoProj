@@ -312,6 +312,11 @@ public class SearchTest extends Base {
 		
 		searchResultPage.selectOptionInSortByDropDownField(dataProp.getProperty("sortOption1"));
 		
+		Assert.assertEquals(searchResultPage.getFirstProductInSearchResult(), "iMac");
+		Assert.assertEquals(searchResultPage.getSecondProductInSearchResult(), "MacBook");
+		Assert.assertEquals(searchResultPage.getThirdProductInSearchResult(), "MacBook Air");
+		Assert.assertEquals(searchResultPage.getFourthProductInSearchResult(), "MacBook Pro");
+		//System.out.println(searchResultPage.getFirstProductInSearchResult());
 	}
 
 }
