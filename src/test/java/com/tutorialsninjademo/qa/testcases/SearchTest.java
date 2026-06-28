@@ -316,7 +316,26 @@ public class SearchTest extends Base {
 		Assert.assertEquals(searchResultPage.getSecondProductInSearchResult(), "MacBook");
 		Assert.assertEquals(searchResultPage.getThirdProductInSearchResult(), "MacBook Air");
 		Assert.assertEquals(searchResultPage.getFourthProductInSearchResult(), "MacBook Pro");
-		//System.out.println(searchResultPage.getFirstProductInSearchResult());
+		searchResultPage.selectOptionInSortByDropDownField(dataProp.getProperty("sortOption2"));
+		Assert.assertEquals(searchResultPage.getFirstProductInSearchResult(), "MacBook Pro");
+		Assert.assertEquals(searchResultPage.getSecondProductInSearchResult(), "MacBook Air");
+		Assert.assertEquals(searchResultPage.getThirdProductInSearchResult(), "MacBook");
+		Assert.assertEquals(searchResultPage.getFourthProductInSearchResult(), "iMac");
+		searchResultPage.selectOptionInSortByDropDownField(dataProp.getProperty("sortOption3"));
+		Assert.assertEquals(searchResultPage.getFirstProductInSearchResult(), "iMac");
+		Assert.assertEquals(searchResultPage.getSecondProductInSearchResult(), "MacBook");
+		Assert.assertEquals(searchResultPage.getThirdProductInSearchResult(), "MacBook Air");
+		Assert.assertEquals(searchResultPage.getFourthProductInSearchResult(), "MacBook Pro");
+		searchResultPage.selectOptionInSortByDropDownField(dataProp.getProperty("sortOption4"));
+		Assert.assertEquals(searchResultPage.getFirstProductInSearchResult(), "MacBook Pro");
+		Assert.assertEquals(searchResultPage.getSecondProductInSearchResult(), "MacBook Air");
+		Assert.assertEquals(searchResultPage.getThirdProductInSearchResult(), "MacBook");
+		Assert.assertEquals(searchResultPage.getFourthProductInSearchResult(), "iMac");
+		
+		
+		
+		
+		
 	}
 
 }
