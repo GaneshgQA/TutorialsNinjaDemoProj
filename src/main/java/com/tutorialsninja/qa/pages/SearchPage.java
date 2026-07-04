@@ -70,6 +70,9 @@ public class SearchPage {
 	@FindBy(id = "compare-total")
 	private WebElement productCompareLink;
 	
+	@FindBy(linkText = "Search")
+	private WebElement searchBreadCrumbLink;
+	
 	public void clickOnProductCompareLink() {
 		
 		elementUtils.clickOnElements(productCompareLink);
@@ -163,6 +166,13 @@ public class SearchPage {
 		//return productHavingSearchTextInDescription.isDisplayed();
 		
 	 return elementUtils.isElementDisplayed(productHavingSearchTextInDescription);
+		
+	}
+	
+	public boolean didWeNavigateToSearchPage() {
+		
+		
+		return elementUtils.isElementDisplayed(searchBreadCrumbLink);
 		
 	}
 

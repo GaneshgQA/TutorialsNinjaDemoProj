@@ -7,12 +7,14 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.tutorialsninja.qa.base.Base;
+import com.tutorialsninja.qa.pages.FooterOptions;
 import com.tutorialsninja.qa.pages.HomePage;
 import com.tutorialsninja.qa.pages.LoginPage;
 import com.tutorialsninja.qa.pages.ProductComparisonPage;
 import com.tutorialsninja.qa.pages.ProductDisplayPage;
 import com.tutorialsninja.qa.pages.SearchPage;
 import com.tutorialsninja.qa.pages.SearchResultPage;
+import com.tutorialsninja.qa.pages.SiteMapPage;
 
 public class SearchTest extends Base {
 
@@ -23,6 +25,8 @@ public class SearchTest extends Base {
 	SearchPage searchPage;
 	ProductDisplayPage productDisplayPage;
 	ProductComparisonPage productComparisonPage;
+	FooterOptions footerOptions;
+	SiteMapPage siteMapPage;
 
 	public SearchTest() {
 
@@ -81,7 +85,7 @@ public class SearchTest extends Base {
 
 		homePage = new HomePage(driver);
 		homePage.clickOnSearchButton();
-		//Test
+		// Test
 
 //		driver.findElement(By.name("search")).sendKeys(dataProp.getProperty("invalidProduct"));
 //		driver.findElement(By.xpath("(//button[contains(@class,'btn-default')])[1]")).click();
@@ -298,20 +302,20 @@ public class SearchTest extends Base {
 		productComparisonPage.didWeNavigateToProductComparisionPage();
 
 	}
-	
+
 	@Test(priority = 15)
 	public void verifySortingProductsInSearchResultPage() throws InterruptedException {
-		
+
 		homePage = new HomePage(driver);
 		homePage.enterProductIntoSearchField(dataProp.getProperty("searchTermForMultipleProductSearch"));
 		homePage.clickOnSearchButton();
-		
+
 		searchResultPage = new SearchResultPage(driver);
-		Assert.assertTrue(searchResultPage.getNumberOfProductsDisplayedInSearchResult()>1);
+		Assert.assertTrue(searchResultPage.getNumberOfProductsDisplayedInSearchResult() > 1);
 		Thread.sleep(5000);
-		
+
 		searchResultPage.selectOptionInSortByDropDownField(dataProp.getProperty("sortOption1"));
-		
+
 		Assert.assertEquals(searchResultPage.getFirstProductInSearchResult(), "iMac");
 		Assert.assertEquals(searchResultPage.getSecondProductInSearchResult(), "MacBook");
 		Assert.assertEquals(searchResultPage.getThirdProductInSearchResult(), "MacBook Air");
@@ -331,11 +335,25 @@ public class SearchTest extends Base {
 		Assert.assertEquals(searchResultPage.getSecondProductInSearchResult(), "MacBook Air");
 		Assert.assertEquals(searchResultPage.getThirdProductInSearchResult(), "MacBook");
 		Assert.assertEquals(searchResultPage.getFourthProductInSearchResult(), "iMac");
-		
-		
+		searchResultPage.selectOptionInSortByDropDownField(dataProp.getProperty("sortOption5"));
+		Assert.assertEquals(searchResultPage.getFirstProductInSearchResult(), "MacBook Pro");
+		Assert.assertEquals(searchResultPage.getSecondProductInSearchResult(), "MacBook Air");
+		Assert.assertEquals(searchResultPage.getThirdProductInSearchResult(), "MacBook");
+		Assert.assertEquals(searchResultPage.getFourthProductInSearchResult(), "iMac");
+
+	}
+
+	@Test(priority = 16)
+	public void verifyNavigatingToSearchPageFromSiteMapPage() {
+	
+		footerOptions = new FooterOptions(driver);
+		footerOptions.clickOnSiteMapLink();
+		siteMapPage = new SiteMapPage(driver);
+		siteMapPage.clickOnSearchLinkOnSiteMapPage();
+		searchPage = new SearchPage(driver);
+		Assert.assertTrue(searchPage.didWeNavigateToSearchPage());
 		
 		
 		
 	}
-
 }

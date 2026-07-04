@@ -44,7 +44,7 @@ public class ElementUtils {
 
 		String text = "";
 		try {
-			text = element.getText();
+			text = element.getText();			
 		} catch (NoSuchElementException e) {
 			text = "";
 		} catch (Exception e) {

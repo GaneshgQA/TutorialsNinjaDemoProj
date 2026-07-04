@@ -6,8 +6,8 @@
       <class name="com.tutorialsninjademo.qa.testcases.SearchTest">
         <methods>
           <include name="setUp"/>
-          <include name="verifySortingProductsInSearchResultPage"/>
           <include name="tearDown"/>
+          <include name="verifyNavigatingToSearchPageFromSiteMapPage"/>
         </methods>
       </class> <!-- com.tutorialsninjademo.qa.testcases.SearchTest -->
     </classes>
