@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 
 import com.tutorialsninja.qa.base.Base;
 import com.tutorialsninja.qa.pages.FooterOptions;
+import com.tutorialsninja.qa.pages.HeaderOptionsPage;
 import com.tutorialsninja.qa.pages.HomePage;
 import com.tutorialsninja.qa.pages.LoginPage;
 import com.tutorialsninja.qa.pages.ProductComparisonPage;
@@ -27,6 +28,7 @@ public class SearchTest extends Base {
 	ProductComparisonPage productComparisonPage;
 	FooterOptions footerOptions;
 	SiteMapPage siteMapPage;
+	HeaderOptionsPage headerOptionsPage;
 
 	public SearchTest() {
 
@@ -345,15 +347,30 @@ public class SearchTest extends Base {
 
 	@Test(priority = 16)
 	public void verifyNavigatingToSearchPageFromSiteMapPage() {
-	
+
 		footerOptions = new FooterOptions(driver);
 		footerOptions.clickOnSiteMapLink();
 		siteMapPage = new SiteMapPage(driver);
 		siteMapPage.clickOnSearchLinkOnSiteMapPage();
 		searchPage = new SearchPage(driver);
 		Assert.assertTrue(searchPage.didWeNavigateToSearchPage());
-		
-		
-		
+
 	}
+
+	@Test(priority = 17)
+	public void verifySearchPageBreadcrumb() {
+
+		homePage = new HomePage(driver);
+		homePage.enterProductIntoSearchField(dataProp.getProperty("validProduct"));
+		homePage.clickOnSearchButton();
+		searchPage = new SearchPage(driver);
+		searchPage.selectSearchBreadCrumbOption();
+		Assert.assertTrue(searchPage.didWeNavigateToSearchPage());
+		headerOptionsPage = new HeaderOptionsPage(driver);
+		headerOptionsPage.clickOnHomeBreadCrumb();
+		Assert.assertEquals(getPageTitle(driver), dataProp.getProperty("pgTitle"), "Home page title does not match");
+		System.out.println("Page title is: " + getPageTitle(driver));
+
+	}
+
 }

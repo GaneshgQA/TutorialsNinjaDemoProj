@@ -1,5 +1,6 @@
 package com.tutorialsninja.qa.pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -40,6 +41,8 @@ public class HeaderOptionsPage {
 	@FindBy(xpath = "//ul[@class='breadcrumb']//i[@class='fa fa-home']")
 	private WebElement homeBreadCrumb;
 
+	// ul[@class='breadcrumb']//i[@class='fa fa-home']
+
 	@FindBy(xpath = "//span[text()='My Account']")
 	private WebElement myAccountDropMenu;
 
@@ -59,7 +62,26 @@ public class HeaderOptionsPage {
 	}
 
 	public boolean isLogoutOptionAvailable() {
-		
+
 		return elementUtils.isElementDisplayed(logOutOption);
+	}
+
+	public void clickOnHomeBreadCrumb() {
+
+		/*
+		 * WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		 * wait.until(ExpectedConditions.elementToBeClickable(homeBreadCrumb));
+		 * homeBreadCrumb.click();
+		 */
+
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+		jsExecutor.executeScript("arguments[0].click();", homeBreadCrumb);
+		
+		/*
+		 * Actions actions = new Actions(driver); Thread.sleep(5000);
+		 * actions.moveToElement(homeBreadCrumb).click().perform();
+		 */
+
+		// elementUtils.clickOnElements(homeBreadCrumb);
 	}
 }

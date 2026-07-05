@@ -12,7 +12,7 @@ import com.tutorialsnija.qa.utils.ElementUtils;
 
 public class SearchPage {
 
-	WebDriver driver;
+	public WebDriver driver;
 	ElementUtils elementUtils;
 
 	public SearchPage(WebDriver driver) {
@@ -72,6 +72,11 @@ public class SearchPage {
 	
 	@FindBy(linkText = "Search")
 	private WebElement searchBreadCrumbLink;
+	
+	public void selectSearchBreadCrumbOption() {
+		
+		elementUtils.clickOnElements(searchBreadCrumbLink);
+	}
 	
 	public void clickOnProductCompareLink() {
 		

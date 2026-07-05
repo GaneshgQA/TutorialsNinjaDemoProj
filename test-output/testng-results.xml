@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-07-04T20:23:47 IST" name="Default suite" finished-at="2026-07-04T20:24:06 IST" duration-ms="18846">
+  <suite started-at="2026-07-05T14:12:02 IST" name="Default suite" finished-at="2026-07-05T14:12:26 IST" duration-ms="24590">
     <groups>
     </groups>
-    <test started-at="2026-07-04T20:23:47 IST" name="Default test" finished-at="2026-07-04T20:24:06 IST" duration-ms="18846">
+    <test started-at="2026-07-05T14:12:02 IST" name="Default test" finished-at="2026-07-05T14:12:26 IST" duration-ms="24590">
       <class name="com.tutorialsninjademo.qa.testcases.SearchTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.tutorialsninjademo.qa.testcases.SearchTest@72bc6553]" started-at="2026-07-04T20:23:47 IST" name="setUp" finished-at="2026-07-04T20:23:59 IST" duration-ms="12721" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.tutorialsninjademo.qa.testcases.SearchTest@66982506]" started-at="2026-07-05T14:12:02 IST" name="setUp" finished-at="2026-07-05T14:12:24 IST" duration-ms="22317" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="verifyNavigatingToSearchPageFromSiteMapPage()[pri:16, instance:com.tutorialsninjademo.qa.testcases.SearchTest@72bc6553]" started-at="2026-07-04T20:23:59 IST" name="verifyNavigatingToSearchPageFromSiteMapPage" finished-at="2026-07-04T20:24:05 IST" duration-ms="5237" status="PASS">
+        <test-method signature="verifySearchPageBreadcrumb()[pri:17, instance:com.tutorialsninjademo.qa.testcases.SearchTest@66982506]" started-at="2026-07-05T14:12:24 IST" name="verifySearchPageBreadcrumb" finished-at="2026-07-05T14:12:26 IST" duration-ms="1802" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyNavigatingToSearchPageFromSiteMapPage -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tutorialsninjademo.qa.testcases.SearchTest@72bc6553]" started-at="2026-07-04T20:24:05 IST" name="tearDown" finished-at="2026-07-04T20:24:06 IST" duration-ms="795" status="PASS">
+        </test-method> <!-- verifySearchPageBreadcrumb -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tutorialsninjademo.qa.testcases.SearchTest@66982506]" started-at="2026-07-05T14:12:26 IST" name="tearDown" finished-at="2026-07-05T14:12:26 IST" duration-ms="390" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
