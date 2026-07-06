@@ -204,4 +204,35 @@ public class SearchPage {
 		elementUtils.pressKeyboardKey("ENTER");
 		
 	}
+	
+	public void verifySearchingByCatagoryUsingKeyboardKeys() {
+		
+		elementUtils.pressKeyMultipleTimes(driver, "TAB", 22);
+		elementUtils.pressKeyboardKey("ARROW_DOWN");
+		elementUtils.pressKeyMultipleTimes(driver, "TAB", 3);
+		elementUtils.pressKeyboardKey("ENTER");
+		
+	}
+	
+	public void verifySearchingInSubCatagoryUsingKeyboardKeys() {
+		
+		elementUtils.pressKeyMultipleTimes(driver, "TAB", 23);
+		elementUtils.pressKeyboardKey("SPACE");
+		elementUtils.pressKeyMultipleTimes(driver, "TAB", 2);
+		elementUtils.pressKeyboardKey("ENTER");
+		
+	}
+	
+	public void verifySearchingInProductDescriptionUsingKeyboardKeys(String productDescription) {
+		
+		elementUtils.pressKeyMultipleTimes(driver, "TAB", 21);
+		elementUtils.pressKeyboardKey("BACK_SPACE");
+		elementUtils.enterTextIntoFieldUsingKeyboardKeys(driver, productDescription);
+		elementUtils.pressKeyMultipleTimes(driver, "TAB", 3);
+		elementUtils.pressKeyboardKey("SPACE");
+		elementUtils.pressKeyMultipleTimes(driver, "TAB", 1);
+		elementUtils.pressKeyboardKey("ENTER");
+		
+		
+	}
 }

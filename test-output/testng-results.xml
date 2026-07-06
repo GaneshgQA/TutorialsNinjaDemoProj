@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-07-06T18:44:42 IST" name="Default suite" finished-at="2026-07-06T18:45:21 IST" duration-ms="38644">
+  <suite started-at="2026-07-06T20:51:36 IST" name="Default suite" finished-at="2026-07-06T20:52:28 IST" duration-ms="52029">
     <groups>
     </groups>
-    <test started-at="2026-07-06T18:44:42 IST" name="Default test" finished-at="2026-07-06T18:45:21 IST" duration-ms="38644">
+    <test started-at="2026-07-06T20:51:36 IST" name="Default test" finished-at="2026-07-06T20:52:28 IST" duration-ms="52029">
       <class name="com.tutorialsninjademo.qa.testcases.SearchTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.tutorialsninjademo.qa.testcases.SearchTest@4bdeaabb]" started-at="2026-07-06T18:44:43 IST" name="setUp" finished-at="2026-07-06T18:44:55 IST" duration-ms="12917" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.tutorialsninjademo.qa.testcases.SearchTest@4bdeaabb]" started-at="2026-07-06T20:51:37 IST" name="setUp" finished-at="2026-07-06T20:51:57 IST" duration-ms="20623" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="verifySearchFunctionalityUsageUsingkeyboardKeys()[pri:18, instance:com.tutorialsninjademo.qa.testcases.SearchTest@4bdeaabb]" started-at="2026-07-06T18:44:55 IST" name="verifySearchFunctionalityUsageUsingkeyboardKeys" finished-at="2026-07-06T18:45:18 IST" duration-ms="23056" status="PASS">
+        <test-method signature="verifySearchFunctionalityUsageUsingkeyboardKeys()[pri:18, instance:com.tutorialsninjademo.qa.testcases.SearchTest@4bdeaabb]" started-at="2026-07-06T20:51:57 IST" name="verifySearchFunctionalityUsageUsingkeyboardKeys" finished-at="2026-07-06T20:52:23 IST" duration-ms="25800" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifySearchFunctionalityUsageUsingkeyboardKeys -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tutorialsninjademo.qa.testcases.SearchTest@4bdeaabb]" started-at="2026-07-06T18:45:19 IST" name="tearDown" finished-at="2026-07-06T18:45:21 IST" duration-ms="2584" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tutorialsninjademo.qa.testcases.SearchTest@4bdeaabb]" started-at="2026-07-06T20:52:23 IST" name="tearDown" finished-at="2026-07-06T20:52:28 IST" duration-ms="5511" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
