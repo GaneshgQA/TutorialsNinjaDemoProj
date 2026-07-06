@@ -62,15 +62,15 @@ public class HomePage {
 
 	public void enterProductIntoSearchField(String productSearchText) {
 
-		//searchField.sendKeys(productSearchText);
-		elementUtils.enterTextIntoElement(searchField,productSearchText);
+		// searchField.sendKeys(productSearchText);
+		elementUtils.enterTextIntoElement(searchField, productSearchText);
 
 	}
 
 	public void clickOnSearchButton() {
 
 		elementUtils.clickOnElements(searchButton);
-		
 
 	}
+
 }

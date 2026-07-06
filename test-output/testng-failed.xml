@@ -5,9 +5,9 @@
     <classes>
       <class name="com.tutorialsninjademo.qa.testcases.SearchTest">
         <methods>
+          <include name="verifySearchFunctionalityUsageUsingkeyboardKeys"/>
           <include name="setUp"/>
           <include name="tearDown"/>
-          <include name="verifySearchPageBreadcrumb"/>
         </methods>
       </class> <!-- com.tutorialsninjademo.qa.testcases.SearchTest -->
     </classes>

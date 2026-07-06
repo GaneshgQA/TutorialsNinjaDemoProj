@@ -5,10 +5,12 @@ import java.io.FileInputStream;
 import java.time.Duration;
 import java.util.Properties;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 
 import com.tutorialsnija.qa.utils.Utilities;
 
@@ -85,5 +87,26 @@ public class Base {
 		return driver.getCurrentUrl();
 		
 	}
+	
+	public WebDriver pressKeyMultipleTimes(WebDriver driver, String key, int numberOfTimes) {
+		
+		Actions action = new Actions(driver);
+		
+		for(int i=0; i<numberOfTimes; i++) {
+			
+			action.sendKeys(Keys.valueOf(key)).perform();
+		}
+		
+		return driver;
+		
+	}
+	
+	public WebDriver enterTextIntoFieldUsingKeyboardKeys(WebDriver driver, String text) {
+		
+		Actions action = new Actions(driver);
+		action.sendKeys(text).perform();
+		return driver;
+	}
+	
 
 }

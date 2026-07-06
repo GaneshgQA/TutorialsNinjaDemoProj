@@ -373,4 +373,22 @@ public class SearchTest extends Base {
 
 	}
 
+	@Test(priority = 18)
+	public void verifySearchFunctionalityUsageUsingkeyboardKeys() throws InterruptedException {
+
+		homePage = new HomePage(driver);
+		searchPage = new SearchPage(driver);
+		searchPage.searchForAProductUsingKeyboardKeys(dataProp.getProperty("validProductiMac"));
+		// pressKeyMultipleTimes(driver,"TAB", 8);
+		// enterTextIntoFieldUsingKeyboardKeys(driver,
+		// dataProp.getProperty("validProductiMac"));
+		Assert.assertTrue(searchPage.didWeNavigateToSearchPage(), "We did not navigate to search page");
+		Thread.sleep(7000);		
+		searchPage.searchUsingSearchCriteriaFieldInSearchResultPage(dataProp.getProperty("catagoryOptionMac"));
+		Thread.sleep(7000);
+		searchResultPage = new SearchResultPage(driver);
+		Thread.sleep(7000);
+		Assert.assertTrue(searchResultPage.getNumberOfProductsDisplayedInSearchResult() == 4, "Number of products displayed in search result is not 4");
+	}
+
 }

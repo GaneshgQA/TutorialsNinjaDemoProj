@@ -1,8 +1,10 @@
 package com.tutorialsnija.qa.utils;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 public class ElementUtils {
@@ -44,7 +46,7 @@ public class ElementUtils {
 
 		String text = "";
 		try {
-			text = element.getText();			
+			text = element.getText();
 		} catch (NoSuchElementException e) {
 			text = "";
 		} catch (Exception e) {
@@ -59,9 +61,9 @@ public class ElementUtils {
 			element.sendKeys(searchText);
 		}
 	}
-	
+
 	public String getPlaceHolderTextOfElement(WebElement element) {
-		
+
 		String searchBoxFieldPlaceHolderText = null;
 		try {
 
@@ -74,15 +76,81 @@ public class ElementUtils {
 
 		return searchBoxFieldPlaceHolderText;
 	}
-	
+
 	public void selectOptionInDropDownFieldUsingOptionText(WebElement element, String optionText) {
-		
-		if(isElementDisplayed(element) && isElementEnabled(element)) {
-			
+
+		if (isElementDisplayed(element) && isElementEnabled(element)) {
+
 			Select select = new Select(element);
 			select.selectByContainsVisibleText(optionText);
-			
+
 		}
 	}
-	
+
+	public WebDriver pressKeyMultipleTimes(WebDriver driver, String key, int numberOfTimes) {
+
+		Actions action = new Actions(driver);
+
+		for (int i = 0; i < numberOfTimes; i++) {
+
+			action.sendKeys(Keys.valueOf(key)).perform();
+
+		}
+
+		return driver;
+
+	}
+
+	public WebDriver enterTextIntoFieldUsingKeyboardKeys(WebDriver driver, String text) {
+
+		Actions action = new Actions(driver);
+		action.sendKeys(text).perform();
+		return driver;
+	}
+
+	public void leftMouseClick() {
+
+		Actions action = new Actions(driver);
+		action.contextClick().perform();
+	}
+
+	public void rightMouseClick() {
+
+		Actions action = new Actions(driver);
+		action.contextClick().perform();
+	}
+
+	public void pressAndHoldKeyboardKey(String key) {
+
+		Actions action = new Actions(driver);
+		action.keyDown(Keys.valueOf(key)).perform();
+	}
+
+	public void pressKeyboardKey(String key) {
+
+		Actions action = new Actions(driver);
+		action.sendKeys(Keys.valueOf(key)).build().perform();
+	}
+
+	public void releaseKeyboardKey(String key) {
+
+		Actions action = new Actions(driver);
+		action.keyUp(Keys.valueOf(key)).perform();
+	}
+
+	public void pastingTextIntoField(WebElement element) {
+
+		if (isElementDisplayed(element) && isElementEnabled(element)) {
+			Actions action = new Actions(driver);
+			action.keyDown(Keys.CONTROL).sendKeys("v").keyUp(Keys.CONTROL).perform();
+		}
+	}
+
+	public void copyTextFromElement(WebElement element) {
+
+		if (isElementDisplayed(element) && isElementEnabled(element)) {
+			Actions action = new Actions(driver);
+			action.keyDown(Keys.CONTROL).sendKeys("c").keyUp(Keys.CONTROL).build().perform();
+		}
+	}
 }
