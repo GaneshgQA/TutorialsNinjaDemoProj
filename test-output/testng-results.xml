@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-07-13T19:07:46 IST" name="Default suite" finished-at="2026-07-13T19:08:57 IST" duration-ms="70927">
+  <suite started-at="2026-07-13T20:32:04 IST" name="Default suite" finished-at="2026-07-13T20:32:30 IST" duration-ms="25569">
     <groups>
     </groups>
-    <test started-at="2026-07-13T19:07:46 IST" name="Default test" finished-at="2026-07-13T19:08:57 IST" duration-ms="70927">
+    <test started-at="2026-07-13T20:32:04 IST" name="Default test" finished-at="2026-07-13T20:32:30 IST" duration-ms="25569">
       <class name="com.tutorialsninjademo.qa.testcases.SearchTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.tutorialsninjademo.qa.testcases.SearchTest@6c4906d3]" started-at="2026-07-13T19:07:46 IST" name="setUp" finished-at="2026-07-13T19:07:59 IST" duration-ms="12867" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.tutorialsninjademo.qa.testcases.SearchTest@71075444]" started-at="2026-07-13T20:32:05 IST" name="setUp" finished-at="2026-07-13T20:32:14 IST" duration-ms="9527" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="verifySearchFunctionalityUsageUsingkeyboardKeys()[pri:18, instance:com.tutorialsninjademo.qa.testcases.SearchTest@6c4906d3]" started-at="2026-07-13T19:07:59 IST" name="verifySearchFunctionalityUsageUsingkeyboardKeys" finished-at="2026-07-13T19:08:54 IST" duration-ms="55548" status="PASS">
+        <test-method signature="verifyScrollToElementUsingActionsClass()[pri:20, instance:com.tutorialsninjademo.qa.testcases.SearchTest@71075444]" started-at="2026-07-13T20:32:14 IST" name="verifyScrollToElementUsingActionsClass" finished-at="2026-07-13T20:32:27 IST" duration-ms="12711" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifySearchFunctionalityUsageUsingkeyboardKeys -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tutorialsninjademo.qa.testcases.SearchTest@6c4906d3]" started-at="2026-07-13T19:08:54 IST" name="tearDown" finished-at="2026-07-13T19:08:57 IST" duration-ms="2412" status="PASS">
+        </test-method> <!-- verifyScrollToElementUsingActionsClass -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tutorialsninjademo.qa.testcases.SearchTest@71075444]" started-at="2026-07-13T20:32:27 IST" name="tearDown" finished-at="2026-07-13T20:32:30 IST" duration-ms="3246" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

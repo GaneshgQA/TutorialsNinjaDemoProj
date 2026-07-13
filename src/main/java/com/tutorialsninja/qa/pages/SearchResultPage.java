@@ -2,6 +2,7 @@ package com.tutorialsninja.qa.pages;
 
 import java.util.List;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -144,5 +145,20 @@ public class SearchResultPage {
 
 		return elementUtils.getTextOfElement(noProductMessage);
 
+	}
+	
+	public void scrollToElementUsingJavaScriptExecutor() {
+		
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+		jsExecutor.executeScript("arguments[0].scrollIntoView(true);", productiMac);
+		elementUtils.clickOnElements(productiMac);
+		
+		
+	}
+	public void scrolToElementUsingActionsClass() {
+		
+		elementUtils.scrollToElement(productmacBook);
+		elementUtils.clickOnElements(productmacBook);
+		
 	}
 }

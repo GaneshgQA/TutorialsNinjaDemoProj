@@ -423,5 +423,33 @@ public class SearchTest extends Base {
 		Assert.assertTrue(searchResultPage.getNumberOfProductsDisplayedInSearchResult() == 1, "Number of products displayed in search result is not 1");
 	*/
 	}
+	
+	@Test(priority = 19)
+	public void verifyScrollToElementUsingJavaScriptExecutor() throws InterruptedException {
+		
+		homePage = new HomePage(driver);
+		homePage.enterProductIntoSearchField(dataProp.getProperty("searchTermForMultipleProducts"));
+		homePage.clickOnSearchButton();
+		//searchPage = new SearchPage(driver);
+		searchResultPage = new SearchResultPage(driver);
+		Thread.sleep(5000);
+		searchResultPage.scrollToElementUsingJavaScriptExecutor();
+		Thread.sleep(5000);
+		
+	}
+	
+	@Test(priority = 20)
+	public void verifyScrollToElementUsingActionsClass() throws InterruptedException {
+		
+		homePage = new HomePage(driver);
+		homePage.enterProductIntoSearchField(dataProp.getProperty("searchTermForMultipleProducts"));
+		homePage.clickOnSearchButton();
+		//searchPage = new SearchPage(driver);
+		searchResultPage = new SearchResultPage(driver);
+		Thread.sleep(5000);
+		searchResultPage.scrolToElementUsingActionsClass();
+		Thread.sleep(5000);
+		
+	}
 
 }
