@@ -88,6 +88,12 @@ public class Base {
 		
 	}
 	
+	public void navigateBackToPreviousPage(WebDriver driver) {
+		
+		driver.navigate().back();
+	
+		
+	}
 	public WebDriver pressKeyMultipleTimes(WebDriver driver, String key, int numberOfTimes) {
 		
 		Actions action = new Actions(driver);

@@ -396,7 +396,21 @@ public class SearchTest extends Base {
 		Assert.assertTrue(searchResultPage.getNumberOfProductsDisplayedInSearchResult() == 3, "Number of products displayed in search result is not 1");
 		searchPage.verifySearchingInProductDescriptionUsingKeyboardKeys(dataProp.getProperty("termInProductDescription"));
 		Assert.assertTrue(searchResultPage.getNumberOfProductsDisplayedInSearchResult() == 1, "Number of products displayed in search result is not 1");
-		
+		searchPage.verifySearchingInListViewUsingKeyboardKeys();
+		Assert.assertTrue(searchResultPage.getNumberOfProductsDisplayedInSearchResult() == 1, "Number of products displayed in search result is not 1");
+		searchPage.verifySearchingInGridViewUsingKeyboardKeys();
+		Assert.assertTrue(searchResultPage.getNumberOfProductsDisplayedInSearchResult() == 1, "Number of products displayed in search result is not 1");
+		searchPage.verifyNavigatingToProductComparePageUsingKeyboardKeys();
+		productComparisonPage = new ProductComparisonPage(driver);
+		Assert.assertTrue(productComparisonPage.didWeNavigateToProductComparisionPage(), "We did not navigate to product comparison page");
+		Thread.sleep(7000);
+		navigateBackToPreviousPage(driver);
+		Thread.sleep(7000);
+		searchPage.verifySortInSearchPageUsingKeyboardKeys();
+		Assert.assertTrue(searchResultPage.getNumberOfProductsDisplayedInSearchResult() == 1, "Number of products displayed in search result is not 1");
+		searchPage.verifyProductCountInSearchPageUsingKeyboardKeys();
+		Assert.assertTrue(searchResultPage.getNumberOfProductsDisplayedInSearchResult() == 1, "Number of products displayed in search result is not 1");
+		Thread.sleep(7000);
 		/*
 		searchPage.selectOptionFromCatagoryDropdownField(1);
 		searchPage.clickOnSearchButton();

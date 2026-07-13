@@ -232,7 +232,46 @@ public class SearchPage {
 		elementUtils.pressKeyboardKey("SPACE");
 		elementUtils.pressKeyMultipleTimes(driver, "TAB", 1);
 		elementUtils.pressKeyboardKey("ENTER");
+			
+	}
+	
+	public void verifySearchingInListViewUsingKeyboardKeys() {
 		
+		elementUtils.pressKeyMultipleTimes(driver, "TAB", 26);
+		elementUtils.pressKeyboardKey("ENTER");
+		//elementUtils.enterTextIntoFieldUsingKeyboardKeys(driver, productDescription);
+		//elementUtils.pressKeyMultipleTimes(driver, "TAB", 3);
+		//elementUtils.pressKeyboardKey("SPACE");
+		//elementUtils.pressKeyMultipleTimes(driver, "TAB", 1);
+		//elementUtils.pressKeyboardKey("ENTER");
+			
+	}
+	
+	public void verifySearchingInGridViewUsingKeyboardKeys() {
+		
+		elementUtils.pressKeyMultipleTimes(driver, "TAB", 1);
+		elementUtils.pressKeyboardKey("ENTER");
+		
+	}
+	
+	public void verifyNavigatingToProductComparePageUsingKeyboardKeys() {
+		
+		elementUtils.pressKeyMultipleTimes(driver, "TAB",1);
+		elementUtils.pressKeyboardKey("ENTER");
+		
+	}
+	
+	public void verifySortInSearchPageUsingKeyboardKeys() {
+		
+		elementUtils.pressKeyMultipleTimes(driver, "TAB", 1);
+		elementUtils.pressKeyboardKey("ARROW_DOWN");
+		
+	}
+	
+	public void verifyProductCountInSearchPageUsingKeyboardKeys() {
+		
+		elementUtils.pressKeyMultipleTimes(driver, "TAB", 30);
+		elementUtils.pressKeyboardKey("ARROW_DOWN");
 		
 	}
 }
