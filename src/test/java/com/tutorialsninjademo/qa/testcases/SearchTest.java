@@ -6,6 +6,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.tutorialsnija.qa.utils.Utilities;
 import com.tutorialsninja.qa.base.Base;
 import com.tutorialsninja.qa.pages.FooterOptions;
 import com.tutorialsninja.qa.pages.HeaderOptionsPage;
@@ -451,5 +452,39 @@ public class SearchTest extends Base {
 		Thread.sleep(5000);
 		
 	}
+	
+	@Test(priority = 21)
+	public void verifySearchFunctionalityHeadingURLAndTitle() {
+		
+		homePage = new HomePage(driver);
+		//homePage.enterProductIntoSearchField(dataProp.getProperty("validProductiMac"));
+		homePage.clickOnSearchButton();
+		searchResultPage = new SearchResultPage(driver);
+		Assert.assertEquals(searchResultPage.getSearchPageHeading(), dataProp.getProperty("searchPageHeading"), "Search functionality heading does not match");
+		Assert.assertEquals(getPageURL(driver), dataProp.getProperty("searchPageURL"), "Search functionality URL does not match");
+		Assert.assertEquals(getPageTitle(driver), dataProp.getProperty("searchPageTitle"), "Search functionality title does not match");
+		
+	}
 
+	@Test(priority = 22)
+	public void verifySearchFunctionalityUI() {
+		
+		homePage = new HomePage(driver);
+		homePage.clickOnSearchButton();
+		searchResultPage = new SearchResultPage(driver);
+		Utilities.takeScreenshot(driver, "\\Screenshot\\actualSearchFunctionalityUI.png");
+		Assert.assertFalse(Utilities.compareTwoScreenshot("\\Screenshot\\actualSearchFunctionalityUI.png", "\\Screenshot\\expectedSearchFunctionalityUI.png"));
+		
+	}
+	
+	@Test(priority = 23)
+	public void verifySearchFunctionalityInAllEnvironments() {
+		
+		homePage = new HomePage(driver);
+		homePage.enterProductIntoSearchField(dataProp.getProperty("validProduct"));
+		homePage.clickOnSearchButton();
+		searchResultPage = new SearchResultPage(driver);
+		Assert.assertTrue(searchResultPage.displayStatusOfValidProduct(), "Valid product HP is not displayed");
+		
+	}
 }

@@ -5,8 +5,8 @@
     <classes>
       <class name="com.tutorialsninjademo.qa.testcases.SearchTest">
         <methods>
-          <include name="verifySearchFunctionalityUsageUsingkeyboardKeys"/>
           <include name="setUp"/>
+          <include name="verifySearchFunctionalityInAllEnvironments"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- com.tutorialsninjademo.qa.testcases.SearchTest -->

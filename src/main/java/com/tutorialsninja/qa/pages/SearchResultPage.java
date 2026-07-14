@@ -63,6 +63,15 @@ public class SearchResultPage {
 	@FindBy(xpath = "(//div[@class='product-thumb']//h4//a)[4]")
 	private WebElement fourthProductInSearchResult;
 
+	@FindBy(xpath = "//div[@id='content']/h1")
+	private WebElement searchPageHeading;
+	
+	public String getSearchPageHeading() {
+
+		return elementUtils.getTextOfElement(searchPageHeading);
+
+	}
+	
 	public String getFirstProductInSearchResult() {
 
 		return elementUtils.getTextOfElement(firstProductInSearchResult);

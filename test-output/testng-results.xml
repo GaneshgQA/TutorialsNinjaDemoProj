@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-07-13T20:32:04 IST" name="Default suite" finished-at="2026-07-13T20:32:30 IST" duration-ms="25569">
+  <suite started-at="2026-07-14T18:35:18 IST" name="Default suite" finished-at="2026-07-14T18:36:11 IST" duration-ms="52972">
     <groups>
     </groups>
-    <test started-at="2026-07-13T20:32:04 IST" name="Default test" finished-at="2026-07-13T20:32:30 IST" duration-ms="25569">
+    <test started-at="2026-07-14T18:35:18 IST" name="Default test" finished-at="2026-07-14T18:36:11 IST" duration-ms="52972">
       <class name="com.tutorialsninjademo.qa.testcases.SearchTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.tutorialsninjademo.qa.testcases.SearchTest@71075444]" started-at="2026-07-13T20:32:05 IST" name="setUp" finished-at="2026-07-13T20:32:14 IST" duration-ms="9527" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.tutorialsninjademo.qa.testcases.SearchTest@4d1bf319]" started-at="2026-07-14T18:35:19 IST" name="setUp" finished-at="2026-07-14T18:36:05 IST" duration-ms="46398" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="verifyScrollToElementUsingActionsClass()[pri:20, instance:com.tutorialsninjademo.qa.testcases.SearchTest@71075444]" started-at="2026-07-13T20:32:14 IST" name="verifyScrollToElementUsingActionsClass" finished-at="2026-07-13T20:32:27 IST" duration-ms="12711" status="PASS">
+        <test-method signature="verifySearchFunctionalityInAllEnvironments()[pri:23, instance:com.tutorialsninjademo.qa.testcases.SearchTest@4d1bf319]" started-at="2026-07-14T18:36:05 IST" name="verifySearchFunctionalityInAllEnvironments" finished-at="2026-07-14T18:36:09 IST" duration-ms="4491" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyScrollToElementUsingActionsClass -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tutorialsninjademo.qa.testcases.SearchTest@71075444]" started-at="2026-07-13T20:32:27 IST" name="tearDown" finished-at="2026-07-13T20:32:30 IST" duration-ms="3246" status="PASS">
+        </test-method> <!-- verifySearchFunctionalityInAllEnvironments -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tutorialsninjademo.qa.testcases.SearchTest@4d1bf319]" started-at="2026-07-14T18:36:09 IST" name="tearDown" finished-at="2026-07-14T18:36:11 IST" duration-ms="1981" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
