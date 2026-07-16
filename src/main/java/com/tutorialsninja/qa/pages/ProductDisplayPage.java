@@ -22,11 +22,22 @@ public class ProductDisplayPage {
 	@FindBy(xpath = "//ul[@class='thumbnails']")
 	private WebElement thumbNailsSection;
 	
+	@FindBy(xpath = "//button[contains(@onclick,'compare')]")
+	private WebElement compareThisProduct;
+	
+	public String getToolTipForCompareThisProductOption() {
+		
+		return elementUtils.getToolTip(compareThisProduct);
+		
+	}
+	
 	
 	public boolean didWeNavigateToProuctDisplayPage() {
 		
 		return elementUtils.isElementDisplayed(thumbNailsSection);
 		
 	}
+	
+	
 
 }

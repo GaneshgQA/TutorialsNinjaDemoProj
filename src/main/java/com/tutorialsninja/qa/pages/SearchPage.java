@@ -72,6 +72,11 @@ public class SearchPage {
 
 	@FindBy(linkText = "Search")
 	private WebElement searchBreadCrumbLink;
+	
+	public void clickOnProductDisplayedInSearchResultUsingName() {
+
+		elementUtils.clickOnElements(hpProduct);
+	}
 
 	public void selectSearchBreadCrumbOption() {
 

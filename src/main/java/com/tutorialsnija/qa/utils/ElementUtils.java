@@ -153,10 +153,22 @@ public class ElementUtils {
 			action.keyDown(Keys.CONTROL).sendKeys("c").keyUp(Keys.CONTROL).build().perform();
 		}
 	}
+
 	public void scrollToElement(WebElement element) {
 		if (isElementDisplayed(element)) {
 			Actions action = new Actions(driver);
 			action.scrollToElement(element).perform();
 		}
+	}
+
+	public String getToolTip(WebElement element) {
+		String toolTipText = null;
+		if (isElementDisplayed(element)) {
+			
+			toolTipText = element.getDomAttribute("data-original-title");
+
+		}
+		return toolTipText;
+
 	}
 }
