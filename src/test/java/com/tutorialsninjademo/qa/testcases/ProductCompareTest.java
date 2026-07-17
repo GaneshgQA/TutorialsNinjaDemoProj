@@ -63,7 +63,54 @@ public class ProductCompareTest extends Base {
 		productComparisonPage.didWeNavigateToProductComparisionPage();
 		productComparisonPage.didDetailsOfTheProductGotAddedForComparison();
 		
-
+	}
+	
+	@Test(priority = 2)
+	public void verifyAddingProductForcomparisonFromSearchPageListView() {
+		
+		homePage = new HomePage(driver);
+		homePage.enterProductIntoSearchField(dataProp.getProperty("validProduct"));
+		homePage.clickOnSearchButton();
+		searchPage = new SearchPage(driver);
+		searchPage.selectListViewOption();
+		searchPage.clickOnProductDisplayedInSearchResultUsingName();
+		productDisplayPage = new ProductDisplayPage(driver);
+		String expectedToolTip = "Compare this Product";	
+		Assert.assertEquals(productDisplayPage.getToolTipForCompareThisProductOption(), expectedToolTip);
+		productDisplayPage.selectCompareThisProductOption();
+		System.out.println(productDisplayPage.getSuccessMessageForCompareThisProductOption());
+		String expectedProductComparisonSuccessMessage = "Success: You have added HP LP3065 to your product comparison!";
+		String actualMessage = productDisplayPage.getSuccessMessageForCompareThisProductOption();
+		Assert.assertTrue(actualMessage.contains(expectedProductComparisonSuccessMessage));
+		productDisplayPage.clickOnProductComparisonLinkInSuccessMessage();
+		productComparisonPage = new ProductComparisonPage(driver);
+		productComparisonPage.didWeNavigateToProductComparisionPage();
+		productComparisonPage.didDetailsOfTheProductGotAddedForComparison();
+		
+	}
+ 
+	@Test(priority = 3)
+	public void verifyAddingProductForcomparisonFromSearchPageGridView() {
+		
+		homePage = new HomePage(driver);
+		homePage.enterProductIntoSearchField(dataProp.getProperty("validProduct"));
+		homePage.clickOnSearchButton();
+		searchPage = new SearchPage(driver);
+		searchPage.selectGridOption();
+		searchPage.clickOnProductDisplayedInSearchResultUsingName();
+		productDisplayPage = new ProductDisplayPage(driver);
+		String expectedToolTip = "Compare this Product";	
+		Assert.assertEquals(productDisplayPage.getToolTipForCompareThisProductOption(), expectedToolTip);
+		productDisplayPage.selectCompareThisProductOption();
+		System.out.println(productDisplayPage.getSuccessMessageForCompareThisProductOption());
+		String expectedProductComparisonSuccessMessage = "Success: You have added HP LP3065 to your product comparison!";
+		String actualMessage = productDisplayPage.getSuccessMessageForCompareThisProductOption();
+		Assert.assertTrue(actualMessage.contains(expectedProductComparisonSuccessMessage));
+		productDisplayPage.clickOnProductComparisonLinkInSuccessMessage();
+		productComparisonPage = new ProductComparisonPage(driver);
+		productComparisonPage.didWeNavigateToProductComparisionPage();
+		productComparisonPage.didDetailsOfTheProductGotAddedForComparison();
+		
 	}
 
 }
