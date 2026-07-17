@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 
 import com.tutorialsninja.qa.base.Base;
 import com.tutorialsninja.qa.pages.HomePage;
+import com.tutorialsninja.qa.pages.ProductComparisonPage;
 import com.tutorialsninja.qa.pages.ProductDisplayPage;
 import com.tutorialsninja.qa.pages.SearchPage;
 
@@ -17,6 +18,7 @@ public class ProductCompareTest extends Base {
 	HomePage homePage;
 	SearchPage searchPage;
 	ProductDisplayPage productDisplayPage;
+	ProductComparisonPage productComparisonPage;
 
 	public ProductCompareTest() {
 
@@ -46,6 +48,20 @@ public class ProductCompareTest extends Base {
 		productDisplayPage = new ProductDisplayPage(driver);
 		String expectedToolTip = "Compare this Product";
 		Assert.assertEquals(productDisplayPage.getToolTipForCompareThisProductOption(), expectedToolTip);
+		productDisplayPage.selectCompareThisProductOption();
+		System.out.println(productDisplayPage.getSuccessMessageForCompareThisProductOption());
+		String expectedProductComparisonSuccessMessage = "Success: You have added HP LP3065 to your product comparison!";
+		//Assert.assertEquals(productDisplayPage.getSuccessMessageForCompareThisProductOption(),
+			//	expectedProductComparisonSuccessMessage);
+		
+		String actualMessage = productDisplayPage.getSuccessMessageForCompareThisProductOption();
+		
+		Assert.assertTrue(actualMessage.contains(expectedProductComparisonSuccessMessage));
+		//System.out.println(productDisplayPage.getSuccessMessageForCompareThisProductOption());
+		productDisplayPage.clickOnProductComparisonLinkInSuccessMessage();
+		productComparisonPage = new ProductComparisonPage(driver);
+		productComparisonPage.didWeNavigateToProductComparisionPage();
+		productComparisonPage.didDetailsOfTheProductGotAddedForComparison();
 		
 
 	}
