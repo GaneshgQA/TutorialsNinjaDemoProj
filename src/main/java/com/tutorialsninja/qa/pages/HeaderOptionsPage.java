@@ -10,7 +10,7 @@ import com.tutorialsnija.qa.utils.ElementUtils;
 
 public class HeaderOptionsPage {
 
-	WebDriver driver;
+	public WebDriver driver;
 	ElementUtils elementUtils;
 
 	public HeaderOptionsPage(WebDriver driver) {
@@ -48,7 +48,24 @@ public class HeaderOptionsPage {
 
 	@FindBy(xpath = "//ul[@class='dropdown-menu dropdown-menu-right']//li//a[text()='Logout']")
 	private WebElement logOutOption;
+	
+	@FindBy(xpath = "//a[text()='Desktops']")
+	private WebElement desktopsMenuOption;
+	
+	@FindBy(xpath = "//a[text()='Show AllDesktops']")
+	private WebElement showAllDesktopsOption;
+	
+	public void clickOnShowAllDesktopsOption() {
+		
+		elementUtils.clickOnElements(showAllDesktopsOption);
+		
+	}
 
+	public void clickOnDesktopsMenuOption() {
+		
+		elementUtils.clickOnElements(desktopsMenuOption);
+		
+	}
 	public void selectLogOutOption() {
 
 		elementUtils.clickOnElements(logOutOption);
@@ -84,4 +101,6 @@ public class HeaderOptionsPage {
 
 		// elementUtils.clickOnElements(homeBreadCrumb);
 	}
+	
+	
 }
