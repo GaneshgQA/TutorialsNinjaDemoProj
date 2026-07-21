@@ -5,9 +5,9 @@
     <classes>
       <class name="com.tutorialsninjademo.qa.testcases.ProductCompareTest">
         <methods>
+          <include name="verifyListOfProductsDisplayedInProductCatagoryPage"/>
           <include name="setUp"/>
           <include name="tearDown"/>
-          <include name="printListOfProducts"/>
         </methods>
       </class> <!-- com.tutorialsninjademo.qa.testcases.ProductCompareTest -->
     </classes>
