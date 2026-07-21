@@ -64,7 +64,7 @@ public class SearchPage {
 	@FindBy(xpath = "//div[@class='product-thumb']//img")
 	private WebElement productImage;
 
-	@FindBy(id = "grid-view")
+	@FindBy(xpath = "//button[@id='grid-view']")
 	private WebElement gridOptin;
 
 	@FindBy(id = "compare-total")
