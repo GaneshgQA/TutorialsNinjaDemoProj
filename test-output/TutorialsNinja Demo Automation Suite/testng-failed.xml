@@ -16,8 +16,8 @@
       <class name="com.tutorialsninjademo.qa.testcases.SearchTest">
         <methods>
           <include name="setUp"/>
+          <include name="verifySearchFunctionalityUI"/>
           <include name="tearDown"/>
-          <include name="verifySearchResultingInMultipleProducts"/>
         </methods>
       </class> <!-- com.tutorialsninjademo.qa.testcases.SearchTest -->
     </classes>

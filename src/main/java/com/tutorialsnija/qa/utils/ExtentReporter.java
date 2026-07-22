@@ -20,7 +20,7 @@ public class ExtentReporter {
 		sparkReporter.config().setTheme(Theme.DARK);
 		sparkReporter.config().setReportName("Ganesh Demo Test");
 		sparkReporter.config().setDocumentTitle("Ganesh Test");
-		sparkReporter.config().setTimeStampFormat("dd/mm/yyyy hh:mm:ss");
+		sparkReporter.config().setTimeStampFormat("dd/MM/yyyy hh:mm:ss");
 
 		extentReports.attachReporter(sparkReporter);
 

@@ -49,7 +49,7 @@ public class ProductCategoryPage extends ProductDisplayPage {
 			if (productList.getText().trim().equalsIgnoreCase("iPod Classic")) {
 
 				wait.until(ExpectedConditions.elementToBeClickable(productList));
-				Thread.sleep(5000);
+				
 				targetElement = productList;
 
 				if (targetElement != null) {

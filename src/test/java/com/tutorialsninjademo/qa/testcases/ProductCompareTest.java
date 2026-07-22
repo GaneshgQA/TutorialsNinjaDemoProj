@@ -23,7 +23,7 @@ import com.tutorialsninja.qa.pages.SearchPage;
 
 public class ProductCompareTest extends Base {
 
-	WebDriver driver;
+	public WebDriver driver;
 	HomePage homePage;
 	SearchPage searchPage;
 	ProductDisplayPage productDisplayPage;
