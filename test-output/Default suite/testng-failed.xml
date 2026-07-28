@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tutorialsninjademo.qa.testcases.ProductCompareTest">
+      <class name="com.tutorialsninjademo.qa.testcases.SiteMapPageTest">
         <methods>
-          <include name="verifyListOfProductsDisplayedInProductCatagoryPage"/>
           <include name="setUp"/>
+          <include name="testClickOnSpecialOffersLink"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- com.tutorialsninjademo.qa.testcases.ProductCompareTest -->
+      </class> <!-- com.tutorialsninjademo.qa.testcases.SiteMapPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

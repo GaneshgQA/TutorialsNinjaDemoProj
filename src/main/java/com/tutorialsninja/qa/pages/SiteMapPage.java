@@ -22,10 +22,17 @@ public class SiteMapPage {
 	@FindBy(linkText = "Search")
 	private WebElement searchLink;
 
+	@FindBy(linkText = "Special Offers")
+	private WebElement specialOffersLink;
+
 	public void clickOnSearchLinkOnSiteMapPage() {
 		
 		elementUtils.clickOnElements(searchLink);
 
+	}
+
+	public void clickOnSpecialOffersLinkOnSiteMapPage() {
+		elementUtils.clickOnElements(specialOffersLink);
 	}
 
 }
