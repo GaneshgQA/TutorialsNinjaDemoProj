@@ -1,0 +1,26 @@
+In the above page can you capture Webelement for Special offers link and action method to click on this link
+
+8747-109F
+
+
+on SpecialOffersPage.java capure Webelement for below using Page object model and PageFactory:
+
+- 'Special Offers' text
+- 'Special Offers' breadcrumb
+-  Sort By dropdown
+
+also write below action methods
+- method to get text of 'Special Offers' text on the page.
+- method to check if 'Special Offers' breadcrumb is visible
+- method to sort the list with descending order.
+
+on SpecialOffersPage.java capure Webelement for:
+-'Add to wishlist' element.
+
+Also create a below methods:
+- method to click on 'Add to Wish List ' webelement
+- method to capture warning message shows to user to log in or create an account 
+
+Then add test methods in 'SpecialOffersTest.java' using new added webelement and method from 'SpecialOffersPage.java'
+
+
