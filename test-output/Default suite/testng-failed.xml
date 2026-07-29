@@ -5,7 +5,7 @@
     <classes>
       <class name="com.tutorialsninjademo.qa.testcases.SpecialOffersTest">
         <methods>
-          <include name="testAddToWishListShowsLoginWarning"/>
+          <include name="verifyCompareSpecificProductByName"/>
           <include name="tearDown"/>
           <include name="setUp"/>
         </methods>

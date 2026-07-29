@@ -80,6 +80,66 @@ public class SpecialOffersTest extends Base {
 		Assert.assertTrue(lower.contains("login") || lower.contains("create an account") || lower.contains("account"), "Alert should prompt user to login or create an account. Actual: " + msg);
 	}
 
+	@Test
+	public void verifyCompareThisProductShowsSuccessMessage() throws InterruptedException {
+		FooterOptions footer = new FooterOptions(driver);
+		footer.clickOnSiteMapLink();
+
+		SiteMapPage siteMap = new SiteMapPage(driver);
+		siteMap.clickOnSpecialOffersLinkOnSiteMapPage();
+
+		SpecialOffersPage specialOffers = new SpecialOffersPage(driver);
+		Thread.sleep(5000); // allow products to load
+		specialOffers.clickCompareThisProduct();
+		Thread.sleep(3000); // wait for success alert to appear
+
+		String msg = specialOffers.getSuccessMessageText();
+		Assert.assertTrue(msg != null && !msg.isEmpty(), "Success message should be displayed after clicking Compare this Product");
+		Assert.assertTrue(msg.contains("Success") || msg.toLowerCase().contains("you have added"), "Success message should indicate product was added for comparison. Actual: " + msg);
+	}
+
+	@Test
+	public void verifyNavigationToProductComparisonPage() throws InterruptedException {
+		FooterOptions footer = new FooterOptions(driver);
+		footer.clickOnSiteMapLink();
+
+		SiteMapPage siteMap = new SiteMapPage(driver);
+		siteMap.clickOnSpecialOffersLinkOnSiteMapPage();
+
+		SpecialOffersPage specialOffers = new SpecialOffersPage(driver);
+		Thread.sleep(5000); // allow products to load
+		specialOffers.clickCompareThisProduct();
+		Thread.sleep(3000); // wait for success alert to appear
+		specialOffers.clickProductComparisonLink();
+		Thread.sleep(3000); // wait for navigation
+
+		Assert.assertTrue(specialOffers.isProductComparisonHeadingVisible(), "Product Comparison heading should be visible after navigating to comparison page");
+	}
+
+	@Test
+	public void verifyCompareSpecificProductByName() throws InterruptedException {
+		FooterOptions footer = new FooterOptions(driver);
+		footer.clickOnSiteMapLink();
+
+		SiteMapPage siteMap = new SiteMapPage(driver);
+		siteMap.clickOnSpecialOffersLinkOnSiteMapPage();
+
+		SpecialOffersPage specialOffers = new SpecialOffersPage(driver);
+		Thread.sleep(5000); // allow products to load
+		// compare a specific product by name from data properties
+		String productName = dataProp.getProperty("specialOfferProduct1");
+		specialOffers.selectCompareThisProductUsingName(productName);
+		Thread.sleep(3000); // wait for success alert
+
+		String msg = specialOffers.getSuccessMessageText();
+		Assert.assertTrue(msg != null && !msg.isEmpty(), "Success message should be displayed after clicking Compare for specific product");
+		Assert.assertTrue(msg.contains(productName) || msg.toLowerCase().contains("you have added"), "Success message should reference the product added. Actual: " + msg);
+		// optionally navigate to comparison page and verify
+		specialOffers.clickProductComparisonLink();
+		Thread.sleep(3000);
+		Assert.assertTrue(specialOffers.isProductComparisonHeadingVisible(), "Product Comparison heading should be visible after navigating to comparison page");
+	}
+
 	@AfterMethod
 	public void tearDown() {
 		driver.quit();

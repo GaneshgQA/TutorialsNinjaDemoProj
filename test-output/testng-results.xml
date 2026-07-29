@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-07-29T17:15:14 IST" name="Default suite" finished-at="2026-07-29T17:15:50 IST" duration-ms="36196">
+  <suite started-at="2026-07-29T19:25:44 IST" name="Default suite" finished-at="2026-07-29T19:26:42 IST" duration-ms="58224">
     <groups>
     </groups>
-    <test started-at="2026-07-29T17:15:14 IST" name="Default test" finished-at="2026-07-29T17:15:50 IST" duration-ms="36196">
+    <test started-at="2026-07-29T19:25:44 IST" name="Default test" finished-at="2026-07-29T19:26:42 IST" duration-ms="58224">
       <class name="com.tutorialsninjademo.qa.testcases.SpecialOffersTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.tutorialsninjademo.qa.testcases.SpecialOffersTest@304bb45b]" started-at="2026-07-29T17:15:14 IST" name="setUp" finished-at="2026-07-29T17:15:40 IST" duration-ms="26502" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.tutorialsninjademo.qa.testcases.SpecialOffersTest@28dcca0c]" started-at="2026-07-29T19:25:44 IST" name="setUp" finished-at="2026-07-29T19:26:14 IST" duration-ms="29611" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="VerifySortByPriceHighToLow()[pri:0, instance:com.tutorialsninjademo.qa.testcases.SpecialOffersTest@304bb45b]" started-at="2026-07-29T17:15:40 IST" name="VerifySortByPriceHighToLow" finished-at="2026-07-29T17:15:48 IST" duration-ms="7528" status="PASS">
+        <test-method signature="verifyCompareSpecificProductByName()[pri:0, instance:com.tutorialsninjademo.qa.testcases.SpecialOffersTest@28dcca0c]" started-at="2026-07-29T19:26:14 IST" name="verifyCompareSpecificProductByName" finished-at="2026-07-29T19:26:32 IST" duration-ms="18233" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- VerifySortByPriceHighToLow -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tutorialsninjademo.qa.testcases.SpecialOffersTest@304bb45b]" started-at="2026-07-29T17:15:48 IST" name="tearDown" finished-at="2026-07-29T17:15:50 IST" duration-ms="2102" status="PASS">
+        </test-method> <!-- verifyCompareSpecificProductByName -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tutorialsninjademo.qa.testcases.SpecialOffersTest@28dcca0c]" started-at="2026-07-29T19:26:32 IST" name="tearDown" finished-at="2026-07-29T19:26:42 IST" duration-ms="10303" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
