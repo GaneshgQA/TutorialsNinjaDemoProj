@@ -47,12 +47,12 @@ public class SpecialOffersPage {
 	}
 
 	// sorts the results by selecting the last option in the Sort By dropdown (typically descending order)
-	public void sortByPriceHighToLow() {
+	public void sortSpecialOffersProductListUsingSortBy(String sortOption) {
 		// try to select the explicit "Price (High > Low)" option; fall back to last option if not present
 		if (elementUtils.isElementDisplayed(sortByDropdown) && elementUtils.isElementEnabled(sortByDropdown)) {
 			Select select = new Select(sortByDropdown);
 			try {
-				select.selectByVisibleText("Price (High > Low)");
+				select.selectByVisibleText(sortOption);
 			} catch (Exception e) {
 				int lastIndex = select.getOptions().size() - 1;
 				if (lastIndex >= 0) {

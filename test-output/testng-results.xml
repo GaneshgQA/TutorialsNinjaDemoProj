@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-07-28T19:12:04 IST" name="Default suite" finished-at="2026-07-28T19:12:53 IST" duration-ms="49270">
+  <suite started-at="2026-07-29T17:15:14 IST" name="Default suite" finished-at="2026-07-29T17:15:50 IST" duration-ms="36196">
     <groups>
     </groups>
-    <test started-at="2026-07-28T19:12:04 IST" name="Default test" finished-at="2026-07-28T19:12:53 IST" duration-ms="49270">
+    <test started-at="2026-07-29T17:15:14 IST" name="Default test" finished-at="2026-07-29T17:15:50 IST" duration-ms="36196">
       <class name="com.tutorialsninjademo.qa.testcases.SpecialOffersTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.tutorialsninjademo.qa.testcases.SpecialOffersTest@304bb45b]" started-at="2026-07-28T19:12:04 IST" name="setUp" finished-at="2026-07-28T19:12:37 IST" duration-ms="32468" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.tutorialsninjademo.qa.testcases.SpecialOffersTest@304bb45b]" started-at="2026-07-29T17:15:14 IST" name="setUp" finished-at="2026-07-29T17:15:40 IST" duration-ms="26502" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="testAddToWishListShowsLoginWarning()[pri:0, instance:com.tutorialsninjademo.qa.testcases.SpecialOffersTest@304bb45b]" started-at="2026-07-28T19:12:37 IST" name="testAddToWishListShowsLoginWarning" finished-at="2026-07-28T19:12:50 IST" duration-ms="13003" status="PASS">
+        <test-method signature="VerifySortByPriceHighToLow()[pri:0, instance:com.tutorialsninjademo.qa.testcases.SpecialOffersTest@304bb45b]" started-at="2026-07-29T17:15:40 IST" name="VerifySortByPriceHighToLow" finished-at="2026-07-29T17:15:48 IST" duration-ms="7528" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testAddToWishListShowsLoginWarning -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tutorialsninjademo.qa.testcases.SpecialOffersTest@304bb45b]" started-at="2026-07-28T19:12:50 IST" name="tearDown" finished-at="2026-07-28T19:12:53 IST" duration-ms="3654" status="PASS">
+        </test-method> <!-- VerifySortByPriceHighToLow -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tutorialsninjademo.qa.testcases.SpecialOffersTest@304bb45b]" started-at="2026-07-29T17:15:48 IST" name="tearDown" finished-at="2026-07-29T17:15:50 IST" duration-ms="2102" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

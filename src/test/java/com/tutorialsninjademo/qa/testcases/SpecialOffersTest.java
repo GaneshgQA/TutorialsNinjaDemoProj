@@ -50,7 +50,7 @@ public class SpecialOffersTest extends Base {
 
 		SpecialOffersPage specialOffers = new SpecialOffersPage(driver);
 		Thread.sleep(5000); // Wait for the page to load before sorting
-		specialOffers.sortByPriceHighToLow();
+		specialOffers.sortSpecialOffersProductListUsingSortBy(dataProp.getProperty("sortOption4"));
 
 		String selected = specialOffers.getSelectedSortByOptionText();
 		// assert that selected option is not empty; prefer exact match when available
@@ -62,7 +62,7 @@ public class SpecialOffersTest extends Base {
 	}
 
 	@Test
-	public void testAddToWishListShowsLoginWarning() throws InterruptedException {
+	public void verifyAddToWishListShowsLoginWarning() throws InterruptedException {
 		FooterOptions footer = new FooterOptions(driver);
 		footer.clickOnSiteMapLink();
 
