@@ -127,7 +127,7 @@ public class SpecialOffersTest extends Base {
 		SpecialOffersPage specialOffers = new SpecialOffersPage(driver);
 		specialOffers.waitForProductsToBeVisible();
 		// compare a specific product by name from data properties
-		String productName = dataProp.getProperty("specialOfferProduct1");
+		String productName = dataProp.getProperty("specialOfferProduct2");
 		specialOffers.selectCompareThisProductUsingName(productName);
 		specialOffers.waitForAlertMessageToBeVisible();
 

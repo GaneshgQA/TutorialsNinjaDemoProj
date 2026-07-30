@@ -6,7 +6,6 @@
       <class name="com.tutorialsninjademo.qa.testcases.SpecialOffersTest">
         <methods>
           <include name="verifyCompareSpecificProductByName"/>
-          <include name="verifyNavigationToProductComparisonPage"/>
           <include name="tearDown"/>
           <include name="setUp"/>
         </methods>

@@ -19,7 +19,7 @@ public class SpecialOffersPage {
 
 	WebDriver driver;
 	ElementUtils elementUtils;
-
+	WebDriverWait wait;
 	// page elements
 	@FindBy(xpath = "//h2[normalize-space()='Special Offers']")
 	private WebElement specialOffersText;
@@ -63,44 +63,44 @@ public class SpecialOffersPage {
 	// Explicit WebDriverWait methods
 	// waits for the Sort By dropdown to be visible
 	public void waitForSortByDropdownToBeVisible() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.elementToBeClickable(sortByDropdown));
 	}
 
 	// waits for the Add to Wish List button to be visible
 	public void waitForAddToWishListButtonToBeVisible() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.elementToBeClickable(addToWishlistButton));
 	}
 
 	// waits for the Compare this Product button to be visible
 	public void waitForCompareThisProductButtonToBeVisible() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.elementToBeClickable(compareThisProductButton));
 	}
 
 	// waits for the alert message to be visible
 	public void waitForAlertMessageToBeVisible() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.elementToBeClickable(alertMessage));
 	}
 
 	// waits for the product comparison link (inside alert) to be visible
 	public void waitForProductComparisonLinkToBeVisible() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.elementToBeClickable(productComparisonLink));
 	}
 
 	// waits for the Product Comparison page heading to be visible
 	public void waitForProductComparisonHeadingToBeVisible() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		// The <h1> heading is not expected to be clickable; wait for visibility instead
 		wait.until(ExpectedConditions.visibilityOf(productComparisonHeading));
 	}
 
 	// waits for products to be visible on the page
 	public void waitForProductsToBeVisible() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		if (productContainers != null && !productContainers.isEmpty()) {
 			wait.until(ExpectedConditions.elementToBeClickable(productContainers.get(0)));
 		} else {
