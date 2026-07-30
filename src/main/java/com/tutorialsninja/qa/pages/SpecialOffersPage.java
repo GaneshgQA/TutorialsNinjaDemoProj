@@ -3,10 +3,15 @@ package com.tutorialsninja.qa.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+
+import java.time.Duration;
 import java.util.List;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.tutorialsnija.qa.utils.ElementUtils;
 
@@ -35,9 +40,14 @@ public class SpecialOffersPage {
 	@FindBy(xpath = "//button[@data-original-title='Compare this Product']")
 	private WebElement compareThisProductButton;
 
+	@FindBy(xpath = "//div[contains(@class,'product-thumb') or contains(@class,'product-layout')]")
+	private List<WebElement> productContainers;
+
 	// link inside the success alert that navigates to Product Comparison page
 	@FindBy(xpath = "//div[contains(@class,'alert')]//a[text()='product comparison']")
 	private WebElement productComparisonLink;
+	
+	////div[contains(@class,'alert')]//a[text()='product comparison']
 
 	// Product Comparison page heading
 	@FindBy(xpath = "//h1[normalize-space()='Product Comparison']")
@@ -48,6 +58,55 @@ public class SpecialOffersPage {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 		elementUtils = new ElementUtils(driver);
+	}
+
+	// Explicit WebDriverWait methods
+	// waits for the Sort By dropdown to be visible
+	public void waitForSortByDropdownToBeVisible() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.elementToBeClickable(sortByDropdown));
+	}
+
+	// waits for the Add to Wish List button to be visible
+	public void waitForAddToWishListButtonToBeVisible() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.elementToBeClickable(addToWishlistButton));
+	}
+
+	// waits for the Compare this Product button to be visible
+	public void waitForCompareThisProductButtonToBeVisible() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.elementToBeClickable(compareThisProductButton));
+	}
+
+	// waits for the alert message to be visible
+	public void waitForAlertMessageToBeVisible() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.elementToBeClickable(alertMessage));
+	}
+
+	// waits for the product comparison link (inside alert) to be visible
+	public void waitForProductComparisonLinkToBeVisible() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.elementToBeClickable(productComparisonLink));
+	}
+
+	// waits for the Product Comparison page heading to be visible
+	public void waitForProductComparisonHeadingToBeVisible() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		// The <h1> heading is not expected to be clickable; wait for visibility instead
+		wait.until(ExpectedConditions.visibilityOf(productComparisonHeading));
+	}
+
+	// waits for products to be visible on the page
+	public void waitForProductsToBeVisible() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		if (productContainers != null && !productContainers.isEmpty()) {
+			wait.until(ExpectedConditions.elementToBeClickable(productContainers.get(0)));
+		} else {
+			// fallback: wait for any product container by locator
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(@class,'product-thumb') or contains(@class,'product-layout')]")));
+		}
 	}
 
 	// returns the page heading text for Special Offers
@@ -139,7 +198,21 @@ public class SpecialOffersPage {
 
 	// clicks the 'product comparison' link inside the success alert to navigate to comparison page
 	public void clickProductComparisonLink() {
-		elementUtils.clickOnElements(productComparisonLink);
+				// scroll the link into view and click using JS (avoids ElementClickInterceptedException
+				// when other elements overlap or the link is not interactable by Selenium native click)
+				JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+				jsExecutor.executeScript("arguments[0].scrollIntoView(true);", productComparisonLink);
+
+				try {
+					// try waiting until link is clickable first
+					WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+					wait.until(ExpectedConditions.elementToBeClickable(productComparisonLink));
+					// prefer JS click which is more robust when overlays interfere
+					jsExecutor.executeScript("arguments[0].click();", productComparisonLink);
+				} catch (Exception e) {
+					// fallback to JS click without waiting
+					jsExecutor.executeScript("arguments[0].click();", productComparisonLink);
+				}
 	}
 
 	// verifies whether the Product Comparison heading is visible on the page

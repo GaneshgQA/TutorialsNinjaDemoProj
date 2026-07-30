@@ -6,13 +6,6 @@
   </listeners>
   <test thread-count="5" name="TutorialsNinja Test Cases(failed)">
     <classes>
-      <class name="com.tutorialsninjademo.qa.testcases.LoginTest">
-        <methods>
-          <include name="verifyUIOfLoginPage"/>
-          <include name="tearDown"/>
-          <include name="setUp"/>
-        </methods>
-      </class> <!-- com.tutorialsninjademo.qa.testcases.LoginTest -->
       <class name="com.tutorialsninjademo.qa.testcases.SearchTest">
         <methods>
           <include name="setUp"/>
@@ -20,6 +13,33 @@
           <include name="tearDown"/>
         </methods>
       </class> <!-- com.tutorialsninjademo.qa.testcases.SearchTest -->
+      <class name="com.tutorialsninjademo.qa.testcases.RegisterTest">
+        <methods>
+          <include name="verifyRegisteringAnAccountWithExistingEmailId"/>
+          <include name="registeringAnAccountWithAllField"/>
+          <include name="verifyRegisteringAnAccountWithInvalidEmail"/>
+          <include name="setUp"/>
+          <include name="verifyBreadCrumbPageHeadingTitleAndURLOfRegisterPage"/>
+          <include name="tearDown"/>
+          <include name="registeringAnAccountUsingKeyboardKeys"/>
+          <include name="verifyRegisteringAnAccountWithMandatoryFields"/>
+          <include name="verifyRegisteringAnAccountWithoutProvidingAnyDetails"/>
+        </methods>
+      </class> <!-- com.tutorialsninjademo.qa.testcases.RegisterTest -->
+      <class name="com.tutorialsninjademo.qa.testcases.LoginTest">
+        <methods>
+          <include name="verifyLoginWithInvalidCredentials"/>
+          <include name="verifyUIOfLoginPage"/>
+          <include name="verifyLoginWithValidCredentials"/>
+          <include name="verifyLoginWithoutProvidingCredentials"/>
+          <include name="verifyLoginWithValidEmailAndInvalidPassword"/>
+          <include name="verifyLoginWithInvalidEmailAndValidPassword"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="verifyDifferentWaysOfNavigatingToLoginpage"/>
+          <include name="verifyBreadCrumbPageHeadingTitleAndPageURLOfLoginPage"/>
+        </methods>
+      </class> <!-- com.tutorialsninjademo.qa.testcases.LoginTest -->
     </classes>
   </test> <!-- TutorialsNinja Test Cases(failed) -->
 </suite> <!-- Failed suite [TutorialsNinja Demo Automation Suite] -->

@@ -41,7 +41,7 @@ public class SpecialOffersTest extends Base {
 	}
 
 	@Test
-	public void VerifySortByPriceHighToLow() throws InterruptedException {
+	public void VerifySortProductListUsingSortBy() throws InterruptedException {
 		FooterOptions footer = new FooterOptions(driver);
 		footer.clickOnSiteMapLink();
 
@@ -49,7 +49,7 @@ public class SpecialOffersTest extends Base {
 		siteMap.clickOnSpecialOffersLinkOnSiteMapPage();
 
 		SpecialOffersPage specialOffers = new SpecialOffersPage(driver);
-		Thread.sleep(5000); // Wait for the page to load before sorting
+		specialOffers.waitForSortByDropdownToBeVisible();
 		specialOffers.sortSpecialOffersProductListUsingSortBy(dataProp.getProperty("sortOption4"));
 
 		String selected = specialOffers.getSelectedSortByOptionText();
@@ -70,9 +70,9 @@ public class SpecialOffersTest extends Base {
 		siteMap.clickOnSpecialOffersLinkOnSiteMapPage();
 
 		SpecialOffersPage specialOffers = new SpecialOffersPage(driver);
-		Thread.sleep(5000); // allow page to stabilize
+		specialOffers.waitForAddToWishListButtonToBeVisible();
 		specialOffers.clickAddToWishList();
-		Thread.sleep(5000); // wait for alert to appear
+		specialOffers.waitForAlertMessageToBeVisible();
 
 		String msg = specialOffers.getWarningMessageText();
 		Assert.assertTrue(msg != null && !msg.isEmpty(), "Alert message should be displayed after clicking Add to Wish List");
@@ -89,9 +89,9 @@ public class SpecialOffersTest extends Base {
 		siteMap.clickOnSpecialOffersLinkOnSiteMapPage();
 
 		SpecialOffersPage specialOffers = new SpecialOffersPage(driver);
-		Thread.sleep(5000); // allow products to load
+		specialOffers.waitForCompareThisProductButtonToBeVisible();
 		specialOffers.clickCompareThisProduct();
-		Thread.sleep(3000); // wait for success alert to appear
+		specialOffers.waitForAlertMessageToBeVisible();
 
 		String msg = specialOffers.getSuccessMessageText();
 		Assert.assertTrue(msg != null && !msg.isEmpty(), "Success message should be displayed after clicking Compare this Product");
@@ -107,11 +107,11 @@ public class SpecialOffersTest extends Base {
 		siteMap.clickOnSpecialOffersLinkOnSiteMapPage();
 
 		SpecialOffersPage specialOffers = new SpecialOffersPage(driver);
-		Thread.sleep(5000); // allow products to load
+		specialOffers.waitForCompareThisProductButtonToBeVisible();
 		specialOffers.clickCompareThisProduct();
-		Thread.sleep(3000); // wait for success alert to appear
+		specialOffers.waitForProductComparisonLinkToBeVisible();
 		specialOffers.clickProductComparisonLink();
-		Thread.sleep(3000); // wait for navigation
+		specialOffers.waitForProductComparisonHeadingToBeVisible();
 
 		Assert.assertTrue(specialOffers.isProductComparisonHeadingVisible(), "Product Comparison heading should be visible after navigating to comparison page");
 	}
@@ -125,18 +125,19 @@ public class SpecialOffersTest extends Base {
 		siteMap.clickOnSpecialOffersLinkOnSiteMapPage();
 
 		SpecialOffersPage specialOffers = new SpecialOffersPage(driver);
-		Thread.sleep(5000); // allow products to load
+		specialOffers.waitForProductsToBeVisible();
 		// compare a specific product by name from data properties
 		String productName = dataProp.getProperty("specialOfferProduct1");
 		specialOffers.selectCompareThisProductUsingName(productName);
-		Thread.sleep(3000); // wait for success alert
+		specialOffers.waitForAlertMessageToBeVisible();
 
 		String msg = specialOffers.getSuccessMessageText();
 		Assert.assertTrue(msg != null && !msg.isEmpty(), "Success message should be displayed after clicking Compare for specific product");
 		Assert.assertTrue(msg.contains(productName) || msg.toLowerCase().contains("you have added"), "Success message should reference the product added. Actual: " + msg);
 		// optionally navigate to comparison page and verify
+		specialOffers.waitForProductComparisonLinkToBeVisible();
 		specialOffers.clickProductComparisonLink();
-		Thread.sleep(3000);
+		specialOffers.waitForProductComparisonHeadingToBeVisible();
 		Assert.assertTrue(specialOffers.isProductComparisonHeadingVisible(), "Product Comparison heading should be visible after navigating to comparison page");
 	}
 
