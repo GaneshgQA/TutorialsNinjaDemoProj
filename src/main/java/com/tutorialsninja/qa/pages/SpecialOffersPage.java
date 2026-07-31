@@ -43,6 +43,10 @@ public class SpecialOffersPage {
 	@FindBy(xpath = "//div[contains(@class,'product-thumb') or contains(@class,'product-layout')]")
 	private List<WebElement> productContainers;
 
+	// 'Add to Cart' buttons (one per product)
+	@FindBy(xpath = "//button[@data-original-title='Add to Cart' or contains(@onclick,'cart.add')]")
+	private List<WebElement> addToCartButtons;
+
 	// link inside the success alert that navigates to Product Comparison page
 	@FindBy(xpath = "//div[contains(@class,'alert')]//a[text()='product comparison']")
 	private WebElement productComparisonLink;
@@ -53,60 +57,67 @@ public class SpecialOffersPage {
 	@FindBy(xpath = "//h1[normalize-space()='Product Comparison']")
 	private WebElement productComparisonHeading;
 
+	// Product details page heading (appears on product information page)
+	@FindBy(xpath = "//div[@id='content']//h1")
+	private WebElement productHeading;
+
 	// constructor of the class
 	public SpecialOffersPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 		elementUtils = new ElementUtils(driver);
+		// initialize WebDriverWait with a default timeout of 10 seconds
+		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
 	}
 
 	// Explicit WebDriverWait methods
 	// waits for the Sort By dropdown to be visible
 	public void waitForSortByDropdownToBeVisible() {
-		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		// reuse the wait instance created in the constructor
 		wait.until(ExpectedConditions.elementToBeClickable(sortByDropdown));
 	}
 
 	// waits for the Add to Wish List button to be visible
 	public void waitForAddToWishListButtonToBeVisible() {
-		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		// reuse the wait instance created in the constructor
 		wait.until(ExpectedConditions.elementToBeClickable(addToWishlistButton));
 	}
 
 	// waits for the Compare this Product button to be visible
 	public void waitForCompareThisProductButtonToBeVisible() {
-		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		// reuse the wait instance created in the constructor
 		wait.until(ExpectedConditions.elementToBeClickable(compareThisProductButton));
 	}
 
 	// waits for the alert message to be visible
 	public void waitForAlertMessageToBeVisible() {
-		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		// reuse the wait instance created in the constructor
 		wait.until(ExpectedConditions.elementToBeClickable(alertMessage));
 	}
 
 	// waits for the product comparison link (inside alert) to be visible
 	public void waitForProductComparisonLinkToBeVisible() {
-		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		// reuse the wait instance created in the constructor
 		wait.until(ExpectedConditions.elementToBeClickable(productComparisonLink));
 	}
 
 	// waits for the Product Comparison page heading to be visible
 	public void waitForProductComparisonHeadingToBeVisible() {
-		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		// reuse the wait instance created in the constructor
 		// The <h1> heading is not expected to be clickable; wait for visibility instead
 		wait.until(ExpectedConditions.visibilityOf(productComparisonHeading));
 	}
 
 	// waits for products to be visible on the page
 	public void waitForProductsToBeVisible() {
-			wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		if (productContainers != null && !productContainers.isEmpty()) {
-			wait.until(ExpectedConditions.elementToBeClickable(productContainers.get(0)));
-		} else {
-			// fallback: wait for any product container by locator
-			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(@class,'product-thumb') or contains(@class,'product-layout')]")));
-		}
+			// reuse the wait instance created in the constructor
+			if (productContainers != null && !productContainers.isEmpty()) {
+				wait.until(ExpectedConditions.elementToBeClickable(productContainers.get(0)));
+			} else {
+				// fallback: wait for any product container by locator
+				wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(@class,'product-thumb') or contains(@class,'product-layout')]")));
+			}
 	}
 
 	// returns the page heading text for Special Offers
@@ -205,7 +216,7 @@ public class SpecialOffersPage {
 
 				try {
 					// try waiting until link is clickable first
-					WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+					// reuse the wait instance created in the constructor
 					wait.until(ExpectedConditions.elementToBeClickable(productComparisonLink));
 					// prefer JS click which is more robust when overlays interfere
 					jsExecutor.executeScript("arguments[0].click();", productComparisonLink);
@@ -213,6 +224,77 @@ public class SpecialOffersPage {
 					// fallback to JS click without waiting
 					jsExecutor.executeScript("arguments[0].click();", productComparisonLink);
 				}
+	}
+
+	// clicks the 'Add to Cart' button for the first product on the Special Offers page
+	public void clickAddToCart() {
+		if (addToCartButtons != null && !addToCartButtons.isEmpty()) {
+			elementUtils.clickOnElements(addToCartButtons.get(0));
+		}
+	}
+
+	// Clicks the Add to Cart button for a specific product by its name and then opens the product information page
+	public void addToCartAndOpenProductInfoByName(String productName) {
+
+		List<WebElement> products = driver.findElements(By.xpath("//div[contains(@class,'product-thumb') or contains(@class,'product-layout')]"));
+		for (WebElement product : products) {
+			try {
+				WebElement nameElement = null;
+				try {
+					nameElement = product.findElement(By.xpath(".//h4//a | .//div[@class='caption']/h4/a"));
+				} catch (Exception e) {
+					// try alternate heading structure
+					nameElement = product.findElement(By.xpath(".//h2//a | .//h3//a"));
+				}
+				String name = nameElement.getText().trim();
+				if (name.equalsIgnoreCase(productName)) {
+					// click Add to Cart inside the same product container
+					try {
+						WebElement addBtn = product.findElement(By.xpath(".//button[@data-original-title='Add to Cart' or contains(@onclick,'cart.add')]")).isDisplayed() ? product.findElement(By.xpath(".//button[@data-original-title='Add to Cart' or contains(@onclick,'cart.add')]") ) : null;
+						if (addBtn != null) {
+							// use JS click to be robust
+							JavascriptExecutor js = (JavascriptExecutor) driver;
+							js.executeScript("arguments[0].click();", addBtn);
+						}
+					} catch (Exception e) {
+						// ignore add to cart click failure and continue
+					}
+					// after attempting to add to cart, navigate to product information page by clicking the product name
+					try {
+						JavascriptExecutor js = (JavascriptExecutor) driver;
+						js.executeScript("arguments[0].scrollIntoView(true);", nameElement);
+						js.executeScript("arguments[0].click();", nameElement);
+					} catch (Exception e) {
+						try {
+							nameElement.click();
+						} catch (Exception ex) {
+							// ignore and continue
+						}
+					}
+					break;
+				}
+			} catch (Exception e) {
+				// continue searching other products
+			}
+		}
+	}
+
+	// waits for the product details page heading to be visible
+	public void waitForProductHeadingToBeVisible() {
+		// reuse the wait instance created in the constructor
+		wait.until(ExpectedConditions.visibilityOf(productHeading));
+	}
+
+	// returns the product details page heading text
+	public String getProductHeadingText() {
+		return elementUtils.getTextOfElement(productHeading);
+	}
+
+	// checks whether the product details page heading matches the expected text (case-insensitive)
+	public boolean isProductHeadingEqualTo(String expectedHeading) {
+		String actual = getProductHeadingText();
+		if (actual == null) return false;
+		return actual.trim().equalsIgnoreCase(expectedHeading.trim());
 	}
 
 	// verifies whether the Product Comparison heading is visible on the page

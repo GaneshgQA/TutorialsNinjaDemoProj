@@ -141,6 +141,39 @@ public class SpecialOffersTest extends Base {
 		Assert.assertTrue(specialOffers.isProductComparisonHeadingVisible(), "Product Comparison heading should be visible after navigating to comparison page");
 	}
 
+	@Test
+	public void verifyClickAddToCartForFirstProductShowsSuccessMessage() throws InterruptedException {
+		FooterOptions footer = new FooterOptions(driver);
+		footer.clickOnSiteMapLink();
+
+		SiteMapPage siteMap = new SiteMapPage(driver);
+		siteMap.clickOnSpecialOffersLinkOnSiteMapPage();
+
+		SpecialOffersPage specialOffers = new SpecialOffersPage(driver);
+		specialOffers.waitForProductsToBeVisible();
+		specialOffers.clickAddToCart();
+		specialOffers.waitForAlertMessageToBeVisible();
+
+		String msg = specialOffers.getSuccessMessageText();
+		Assert.assertTrue(msg != null && !msg.isEmpty(), "Success/alert message should be displayed after clicking Add to Cart");
+	}
+
+	@Test
+	public void verifyAddToCartThenOpenProductInfoAndVerifyHeading() throws InterruptedException {
+		FooterOptions footer = new FooterOptions(driver);
+		footer.clickOnSiteMapLink();
+
+		SiteMapPage siteMap = new SiteMapPage(driver);
+		siteMap.clickOnSpecialOffersLinkOnSiteMapPage();
+
+		SpecialOffersPage specialOffers = new SpecialOffersPage(driver);
+		specialOffers.waitForProductsToBeVisible();
+		String productName = dataProp.getProperty("specialOfferProduct1");
+		specialOffers.addToCartAndOpenProductInfoByName(productName);
+		specialOffers.waitForProductHeadingToBeVisible();
+		Assert.assertTrue(specialOffers.isProductHeadingEqualTo(productName), "Product heading should match the product that was clicked");
+	}
+
 	@AfterMethod
 	public void tearDown() {
 		driver.quit();
