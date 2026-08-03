@@ -34,8 +34,13 @@ public class AddToCartWithoutLoginPage {
 	@FindBy(xpath = "//span[text()='Shopping Cart']")
 	private WebElement shoppingCartLink;
 	
+	@FindBy(xpath = "//a[text()='Shopping Cart']")
+	private WebElement shoppingCartBreadcrumb;
 	// Action Methods
 	
+	public boolean isShoppingCartBreadcrumbDisplayed() {
+		return elementUtils.isElementDisplayed(shoppingCartBreadcrumb);
+	}
 	/**
 	 * Check if MacBook product is available and then click on Add to Cart button
 	 */
@@ -64,6 +69,7 @@ public class AddToCartWithoutLoginPage {
 	 * Click on Shopping Cart link to navigate to shopping cart page
 	 */
 	public void clickOnShoppingCartLink() {
+		
 		elementUtils.clickOnElements(shoppingCartLink);
 	}
 	
@@ -98,4 +104,5 @@ public class AddToCartWithoutLoginPage {
 	public boolean isShoppingCartLinkDisplayed() {
 		return elementUtils.isElementDisplayed(shoppingCartLink);
 	}
+	
 }

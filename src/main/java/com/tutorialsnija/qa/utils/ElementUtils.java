@@ -38,7 +38,19 @@ public class ElementUtils {
 
 	public void clickOnElements(WebElement element) {
 		if (isElementDisplayed(element) && isElementEnabled(element)) {
-			element.click();
+			try {
+				element.click();
+			} catch (org.openqa.selenium.ElementClickInterceptedException e) {
+				// If element is intercepted by another element, scroll into view and try again
+				scrollToElement(element);
+				try {
+					element.click();
+				} catch (org.openqa.selenium.ElementClickInterceptedException e2) {
+					// If still intercepted, use JavaScriptExecutor to click
+					org.openqa.selenium.JavascriptExecutor executor = (org.openqa.selenium.JavascriptExecutor) driver;
+					executor.executeScript("arguments[0].click();", element);
+				}
+			}
 		}
 	}
 

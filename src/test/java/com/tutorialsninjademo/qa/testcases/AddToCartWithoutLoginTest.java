@@ -61,7 +61,7 @@ public class AddToCartWithoutLoginTest extends Base {
 	}
 	
 	@Test(priority = 2)
-	public void verifyCompleteAddToCartFlowWithoutLogin() {
+	public void verifyAddToCartAndClickOnShoppingCartLinkWithoutLogin() {
 		// Click on Add to Cart button
 		addToCartWithoutLoginPage.clickOnAddToCartButton();
 
@@ -96,6 +96,9 @@ public class AddToCartWithoutLoginTest extends Base {
 		System.out.println("Page Title: " + pageTitle);
 		Assert.assertTrue(pageTitle.contains("Shopping Cart") || pageTitle.contains("cart"),
 				"Failed to navigate to shopping cart page");
+		//AddToCartWithoutLoginPage addToCartWithoutLoginPage = new AddToCartWithoutLoginPage(driver);
+		Assert.assertTrue(addToCartWithoutLoginPage.isShoppingCartBreadcrumbDisplayed(),
+				"Shopping Cart breadcrumb is not displayed on the shopping cart page");
 	}
 
 	/**
