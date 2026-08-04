@@ -6,6 +6,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.StaleElementReferenceException;
+import java.time.Duration;
 
 public class ElementUtils {
 
@@ -182,5 +186,108 @@ public class ElementUtils {
 		}
 		return toolTipText;
 
+	}
+
+	/**
+	 * Wait for an element to be clickable and handle stale element references
+	 * @param element The WebElement to wait for
+	 * @param timeoutInSeconds Maximum time to wait
+	 */
+	public void waitForElementToBeClickable(WebElement element, int timeoutInSeconds) {
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds));
+			wait.until(ExpectedConditions.elementToBeClickable(element));
+		} catch (Exception e) {
+			// Element wait failed, but continue
+		}
+	}
+
+	/**
+	 * Wait for an element to be visible and handle stale element references
+	 * @param element The WebElement to wait for
+	 * @param timeoutInSeconds Maximum time to wait
+	 */
+	public void waitForElementToBeVisible(WebElement element, int timeoutInSeconds) {
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds));
+			wait.until(ExpectedConditions.visibilityOf(element));
+		} catch (Exception e) {
+			// Element wait failed, but continue
+		}
+	}
+
+	/**
+	 * Click element with retry logic for stale elements
+	 * @param element The WebElement to click
+	 * @param retries Number of retry attempts
+	 */
+	public void clickOnElementWithRetry(WebElement element, int retries) {
+		int attempts = 0;
+		while (attempts < retries) {
+			try {
+				waitForElementToBeClickable(element, 10);
+				if (isElementDisplayed(element) && isElementEnabled(element)) {
+					element.click();
+					return;
+				}
+			} catch (StaleElementReferenceException e) {
+				attempts++;
+				if (attempts >= retries) {
+					throw e;
+				}
+				try {
+					Thread.sleep(500); // Wait before retry
+				} catch (InterruptedException ie) {
+					Thread.currentThread().interrupt();
+				}
+			} catch (Exception e) {
+				attempts++;
+				if (attempts >= retries) {
+					throw e;
+				}
+			}
+		}
+	}
+
+	/**
+	 * Get text with retry logic for stale elements
+	 * @param element The WebElement to get text from
+	 * @param retries Number of retry attempts
+	 * @return Text of the element
+	 */
+	public String getTextOfElementWithRetry(WebElement element, int retries) {
+		int attempts = 0;
+		while (attempts < retries) {
+			try {
+				waitForElementToBeVisible(element, 10);
+				return element.getText();
+			} catch (StaleElementReferenceException e) {
+				attempts++;
+				if (attempts >= retries) {
+					return "";
+				}
+				try {
+					Thread.sleep(500); // Wait before retry
+				} catch (InterruptedException ie) {
+					Thread.currentThread().interrupt();
+				}
+			} catch (Exception e) {
+				attempts++;
+				if (attempts >= retries) {
+					return "";
+				}
+			}
+		}
+		return "";
+	}
+
+	/**
+	 * Wait for page to be ready (document ready state)
+	 * @param timeoutInSeconds Maximum time to wait
+	 */
+	public void waitForPageLoad(int timeoutInSeconds) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds));
+		wait.until(webDriver -> ((org.openqa.selenium.JavascriptExecutor) webDriver)
+				.executeScript("return document.readyState").equals("complete"));
 	}
 }

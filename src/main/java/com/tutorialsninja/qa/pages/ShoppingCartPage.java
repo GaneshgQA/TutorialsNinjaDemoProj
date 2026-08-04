@@ -39,11 +39,12 @@ public class ShoppingCartPage {
 	
 	////table[@class='table table-bordered']//tbody//tr//td[2]
 	// Product quantity field
-	@FindBy(xpath = "//input[@name='quantity']")
+	@FindBy(xpath = "//input[contains(@name,'quantity')]")
 	private List<WebElement> quantityFields;
+	////input[@name='quantity']
 	
 	// Product unit price
-	@FindBy(xpath = "//table[@class='table table-bordered']//tbody//tr//td[4]")
+	@FindBy(xpath = "//table[@class='table table-bordered']//tbody//tr//td[5]")
 	private List<WebElement> unitPrices;
 	
 	// Product total price
@@ -51,20 +52,24 @@ public class ShoppingCartPage {
 	private List<WebElement> totalPrices;
 	
 	// Remove product button
-	@FindBy(xpath = "//button[@type='submit']//i[@class='fa fa-times']")
+	@FindBy(xpath = "(//span[@class='input-group-btn']//button)[3]")
 	private List<WebElement> removeButtons;
+	////button[@type='submit']//i[@class='fa fa-times']
 	
 	// Subtotal
-	@FindBy(xpath = "//th[text()='Sub-Total']/following::td[1]")
+	@FindBy(xpath = "(//table[@class='table table-bordered']//tr//td[2])[7]")
 	private WebElement subTotal;
+	////th[text()='Sub-Total']/following::td[1]
 	
 	// Tax
-	@FindBy(xpath = "//th[text()='Tax']/following::td[1]")
+	@FindBy(xpath = "(//table[@class='table table-bordered']//tr//td[2])[8]")
 	private WebElement tax;
+	////th[text()='Tax']/following::td[1]
 	
 	// Total
-	@FindBy(xpath = "//th[text()='Total']/following::td[1]")
+	@FindBy(xpath = "(//table[@class='table table-bordered']//tr[4]//td[2])[2]")
 	private WebElement total;
+	////th[text()='Total']/following::td[1]
 	
 	// Checkout button
 	@FindBy(xpath = "//a[@class='btn btn-primary']")
@@ -89,6 +94,8 @@ public class ShoppingCartPage {
 	 * @return true if cart table is displayed, false otherwise
 	 */
 	public boolean isShoppingCartTableDisplayed() {
+		elementUtils.waitForPageLoad(15);
+		elementUtils.waitForElementToBeVisible(shoppingCartTable, 15);
 		return elementUtils.isElementDisplayed(shoppingCartTable);
 	}
 	
@@ -105,9 +112,17 @@ public class ShoppingCartPage {
 	 * @return List of product names
 	 */
 	public List<String> getAllProductNames() {
+		elementUtils.waitForPageLoad(15);
 		List<String> names = new java.util.ArrayList<>();
 		for (WebElement element : productNames) {
-			names.add(elementUtils.getTextOfElement(element));
+			try {
+				String name = elementUtils.getTextOfElementWithRetry(element, 3);
+				if (!name.isEmpty()) {
+					names.add(name);
+				}
+			} catch (Exception e) {
+				// Skip element if retrieval fails
+			}
 		}
 		return names;
 	}
@@ -129,7 +144,11 @@ public class ShoppingCartPage {
 	 */
 	public String getProductModel(int index) {
 		if (index < productModels.size()) {
-			return elementUtils.getTextOfElement(productModels.get(index));
+			try {
+				return elementUtils.getTextOfElementWithRetry(productModels.get(index), 3);
+			} catch (Exception e) {
+				return null;
+			}
 		}
 		return null;
 	}
@@ -141,7 +160,11 @@ public class ShoppingCartPage {
 	 */
 	public String getProductUnitPrice(int index) {
 		if (index < unitPrices.size()) {
-			return elementUtils.getTextOfElement(unitPrices.get(index));
+			try {
+				return elementUtils.getTextOfElementWithRetry(unitPrices.get(index), 3);
+			} catch (Exception e) {
+				return null;
+			}
 		}
 		return null;
 	}
@@ -153,7 +176,11 @@ public class ShoppingCartPage {
 	 */
 	public String getProductTotalPrice(int index) {
 		if (index < totalPrices.size()) {
-			return elementUtils.getTextOfElement(totalPrices.get(index));
+			try {
+				return elementUtils.getTextOfElementWithRetry(totalPrices.get(index), 3);
+			} catch (Exception e) {
+				return null;
+			}
 		}
 		return null;
 	}
@@ -185,7 +212,8 @@ public class ShoppingCartPage {
 	 * Click on Update Cart button to apply quantity changes
 	 */
 	public void clickOnUpdateCartButton() {
-		elementUtils.clickOnElements(updateCartButton);
+		elementUtils.waitForElementToBeClickable(updateCartButton, 15);
+		elementUtils.clickOnElementWithRetry(updateCartButton, 3);
 	}
 	
 	/**
@@ -194,7 +222,55 @@ public class ShoppingCartPage {
 	 */
 	public void removeProductFromCart(int index) {
 		if (index < removeButtons.size()) {
-			elementUtils.clickOnElements(removeButtons.get(index));
+			elementUtils.clickOnElementWithRetry(removeButtons.get(index), 3);
+			// Wait for page to refresh after removal
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				Thread.currentThread().interrupt();
+			}
+			// Wait for page load after removal
+			elementUtils.waitForPageLoad(15);
+		}
+	}
+	
+	/**
+	 * Remove all products from cart with proper wait handling
+	 * This method handles DOM refresh after each removal
+	 */
+	public void removeAllProductsFromCart() {
+		// Keep removing the first product until cart is empty or no more products
+		int maxAttempts = 50; // Prevent infinite loop
+		int attempts = 0;
+		
+		while (attempts < maxAttempts) {
+			try {
+				int productsCount = getNumberOfProductsInCart();
+				if (productsCount <= 0) {
+					// Cart is empty
+					break;
+				}
+				
+				// Always remove the first product (index 0)
+				if (removeButtons != null && removeButtons.size() > 0) {
+					elementUtils.clickOnElementWithRetry(removeButtons.get(0), 3);
+					// Wait for page to refresh
+					try {
+						Thread.sleep(2000);
+					} catch (InterruptedException e) {
+						Thread.currentThread().interrupt();
+					}
+					elementUtils.waitForPageLoad(15);
+				} else {
+					// No more remove buttons, cart might be empty
+					break;
+				}
+			} catch (Exception e) {
+				// If any error occurs, break the loop
+				System.out.println("Error during removal: " + e.getMessage());
+				break;
+			}
+			attempts++;
 		}
 	}
 	
@@ -203,7 +279,12 @@ public class ShoppingCartPage {
 	 * @return Subtotal text
 	 */
 	public String getSubTotal() {
-		return elementUtils.getTextOfElement(subTotal);
+		try {
+			elementUtils.waitForElementToBeVisible(subTotal, 10);
+			return elementUtils.getTextOfElementWithRetry(subTotal, 3);
+		} catch (Exception e) {
+			return null;
+		}
 	}
 	
 	/**
@@ -211,7 +292,12 @@ public class ShoppingCartPage {
 	 * @return Tax text
 	 */
 	public String getTax() {
-		return elementUtils.getTextOfElement(tax);
+		try {
+			elementUtils.waitForElementToBeVisible(tax, 10);
+			return elementUtils.getTextOfElementWithRetry(tax, 3);
+		} catch (Exception e) {
+			return null;
+		}
 	}
 	
 	/**
@@ -219,7 +305,12 @@ public class ShoppingCartPage {
 	 * @return Total text
 	 */
 	public String getTotal() {
-		return elementUtils.getTextOfElement(total);
+		try {
+			elementUtils.waitForElementToBeVisible(total, 10);
+			return elementUtils.getTextOfElementWithRetry(total, 3);
+		} catch (Exception e) {
+			return null;
+		}
 	}
 	
 	/**
@@ -234,7 +325,8 @@ public class ShoppingCartPage {
 	 * Click on Checkout button to proceed with checkout
 	 */
 	public void clickOnCheckoutButton() {
-		elementUtils.clickOnElements(checkoutButton);
+		elementUtils.waitForElementToBeClickable(checkoutButton, 15);
+		elementUtils.clickOnElementWithRetry(checkoutButton, 3);
 	}
 	
 	/**
@@ -249,7 +341,8 @@ public class ShoppingCartPage {
 	 * Click on Continue Shopping button
 	 */
 	public void clickOnContinueShoppingButton() {
-		elementUtils.clickOnElements(continueShoppingButton);
+		elementUtils.waitForElementToBeClickable(continueShoppingButton, 15);
+		elementUtils.clickOnElementWithRetry(continueShoppingButton, 3);
 	}
 	
 	/**
@@ -257,7 +350,14 @@ public class ShoppingCartPage {
 	 * @return true if cart is empty, false otherwise
 	 */
 	public boolean isCartEmpty() {
-		return elementUtils.isElementDisplayed(emptyCartMessage);
+		try {
+			// Wait up to 10 seconds for the empty message to appear
+			elementUtils.waitForElementToBeVisible(emptyCartMessage, 10);
+			return elementUtils.isElementDisplayed(emptyCartMessage);
+		} catch (Exception e) {
+			// Element not found or not visible, cart is not empty
+			return false;
+		}
 	}
 	
 	/**
@@ -265,7 +365,12 @@ public class ShoppingCartPage {
 	 * @return Empty cart message
 	 */
 	public String getEmptyCartMessage() {
-		return elementUtils.getTextOfElement(emptyCartMessage);
+		try {
+			elementUtils.waitForElementToBeVisible(emptyCartMessage, 10);
+			return elementUtils.getTextOfElementWithRetry(emptyCartMessage, 3);
+		} catch (Exception e) {
+			return null;
+		}
 	}
 	
 	/**

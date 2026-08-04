@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-08-03T20:38:30 IST" name="Default suite" finished-at="2026-08-03T20:39:16 IST" duration-ms="46590">
+  <suite started-at="2026-08-04T20:37:17 IST" name="Default suite" finished-at="2026-08-04T20:40:09 IST" duration-ms="172344">
     <groups>
     </groups>
-    <test started-at="2026-08-03T20:38:30 IST" name="Default test" finished-at="2026-08-03T20:39:16 IST" duration-ms="46590">
+    <test started-at="2026-08-04T20:37:17 IST" name="Default test" finished-at="2026-08-04T20:40:09 IST" duration-ms="172344">
       <class name="com.tutorialsninjademo.qa.testcases.ShoppingCartTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.tutorialsninjademo.qa.testcases.ShoppingCartTest@71075444]" started-at="2026-08-03T20:38:30 IST" name="setUp" finished-at="2026-08-03T20:39:11 IST" duration-ms="41770" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.tutorialsninjademo.qa.testcases.ShoppingCartTest@4f32a3ad]" started-at="2026-08-04T20:37:17 IST" name="setUp" finished-at="2026-08-04T20:38:22 IST" duration-ms="65089" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="verifyGetProductModel()[pri:5, instance:com.tutorialsninjademo.qa.testcases.ShoppingCartTest@71075444]" started-at="2026-08-03T20:39:11 IST" name="verifyGetProductModel" finished-at="2026-08-03T20:39:14 IST" duration-ms="2631" status="PASS">
+        <test-method signature="verifyEmptyCartMessage()[pri:18, instance:com.tutorialsninjademo.qa.testcases.ShoppingCartTest@4f32a3ad]" started-at="2026-08-04T20:38:22 IST" name="verifyEmptyCartMessage" finished-at="2026-08-04T20:40:07 IST" duration-ms="105129" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyGetProductModel -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tutorialsninjademo.qa.testcases.ShoppingCartTest@71075444]" started-at="2026-08-03T20:39:14 IST" name="tearDown" finished-at="2026-08-03T20:39:16 IST" duration-ms="2105" status="PASS">
+        </test-method> <!-- verifyEmptyCartMessage -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tutorialsninjademo.qa.testcases.ShoppingCartTest@4f32a3ad]" started-at="2026-08-04T20:40:07 IST" name="tearDown" finished-at="2026-08-04T20:40:09 IST" duration-ms="2048" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
