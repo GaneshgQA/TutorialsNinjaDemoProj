@@ -6,8 +6,8 @@
       <class name="com.tutorialsninjademo.qa.testcases.ShoppingCartTest">
         <methods>
           <include name="setUp"/>
-          <include name="verifyEmptyCartMessage"/>
           <include name="tearDown"/>
+          <include name="verifyProductInCartWithDetails"/>
         </methods>
       </class> <!-- com.tutorialsninjademo.qa.testcases.ShoppingCartTest -->
     </classes>

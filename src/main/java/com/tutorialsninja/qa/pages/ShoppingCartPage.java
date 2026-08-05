@@ -21,8 +21,9 @@ public class ShoppingCartPage {
 	}
 	
 	// Web Elements for Shopping Cart Page
-	@FindBy(xpath = "//table[@class='table table-bordered']")
+	@FindBy(xpath = "//div[@class='table-responsive']//table")
 	private WebElement shoppingCartTable;
+	////table[@class='table table-bordered']
 	
 	// Shopping Cart table rows (products)
 	@FindBy(xpath = "//table[@class='table table-bordered']//tbody//tr")
@@ -80,12 +81,14 @@ public class ShoppingCartPage {
 	private WebElement continueShoppingButton;
 	
 	// Empty cart message
-	@FindBy(xpath = "//p[text()='Your shopping cart is empty!']")
+	@FindBy(xpath = "//div[@id='content']//p")
 	private WebElement emptyCartMessage;
+	////p[text()='Your shopping cart is empty!']
 	
 	// Update cart button
-	@FindBy(xpath = "//button[@type='submit'][contains(text(), 'Update')]")
+	@FindBy(xpath = "//button[@type='submit'][@class='btn btn-primary']")
 	private WebElement updateCartButton;
+	////button[@type='submit'][contains(text(), 'Update')]
 	
 	// Action Methods
 	
