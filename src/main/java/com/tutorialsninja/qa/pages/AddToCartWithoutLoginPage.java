@@ -19,12 +19,26 @@ public class AddToCartWithoutLoginPage {
 	}
 	
 	// Web Elements for MacBook product
-	@FindBy(xpath = "//a[text()='MacBook']")
+	@FindBy(xpath = "(//div[@class='row']//div//h4//a)[1]")
 	private WebElement macbookProduct;
+	////a[text()='MacBook']
+	
+	@FindBy(xpath = "(//div[@class='row']//div//h4//a)[2]")
+	private WebElement iPhone;
+	
+	@FindBy(xpath = "(//div[@class='row']//div//h4//a)[3]")
+	private WebElement AppleCinema30;
+	
+	@FindBy(xpath = "(//div[@class='row']//div//h4//a)[4]")
+	private WebElement CanonEOS5D;
 	
 	// Web Element for Add to Cart button
 	@FindBy(xpath = "//button[contains(@onclick, 'cart.add')]")
 	private WebElement addToCartButton;
+	////button[contains(@onclick, 'cart.add')]
+	
+	@FindBy(xpath = "//button[@id='button-cart']")
+	private WebElement addToCartButtonAfterClickingOnProduct;
 	
 	// Web Element for success message
 	@FindBy(xpath = "//div[contains(@class, 'alert alert-success alert-dismissible')]")
@@ -57,6 +71,9 @@ public class AddToCartWithoutLoginPage {
 		elementUtils.clickOnElements(addToCartButton);
 	}
 	
+	public void clickOnAddToCartButtonAfterClickingOnProduct() {
+		elementUtils.clickOnElements(addToCartButtonAfterClickingOnProduct);
+	}
 	/**
 	 * Get the success message text after adding product to cart
 	 * @return Success message text
@@ -69,7 +86,6 @@ public class AddToCartWithoutLoginPage {
 	 * Click on Shopping Cart link to navigate to shopping cart page
 	 */
 	public void clickOnShoppingCartLink() {
-		
 		elementUtils.clickOnElements(shoppingCartLink);
 	}
 	
@@ -103,6 +119,51 @@ public class AddToCartWithoutLoginPage {
 	 */
 	public boolean isShoppingCartLinkDisplayed() {
 		return elementUtils.isElementDisplayed(shoppingCartLink);
+	}
+	
+	/**
+	 * Verify if iPhone product is displayed
+	 * @return true if iPhone is displayed, false otherwise
+	 */
+	public boolean isIPhoneDisplayed() {
+		return elementUtils.isElementDisplayed(iPhone);
+	}
+	
+	/**
+	 * Click on iPhone product
+	 */
+	public void clickOnIPhone() {
+		elementUtils.clickOnElements(iPhone);
+	}
+	
+	/**
+	 * Verify if Apple Cinema 30 product is displayed
+	 * @return true if Apple Cinema 30 is displayed, false otherwise
+	 */
+	public boolean isAppleCinema30Displayed() {
+		return elementUtils.isElementDisplayed(AppleCinema30);
+	}
+	
+	/**
+	 * Click on Apple Cinema 30 product
+	 */
+	public void clickOnAppleCinema30() {
+		elementUtils.clickOnElements(AppleCinema30);
+	}
+	
+	/**
+	 * Verify if Canon EOS 5D product is displayed
+	 * @return true if Canon EOS 5D is displayed, false otherwise
+	 */
+	public boolean isCanonEOS5DDisplayed() {
+		return elementUtils.isElementDisplayed(CanonEOS5D);
+	}
+	
+	/**
+	 * Click on Canon EOS 5D product
+	 */
+	public void clickOnCanonEOS5D() {
+		elementUtils.clickOnElements(CanonEOS5D);
 	}
 	
 }

@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tutorialsninjademo.qa.testcases.ShoppingCartTest">
+      <class name="com.tutorialsninjademo.qa.testcases.AddToCartWithoutLoginTest">
         <methods>
-          <include name="setUp"/>
+          <include name="verifyAddingCanonEOS5DToCartWithoutLogin"/>
           <include name="tearDown"/>
-          <include name="verifyProductInCartWithDetails"/>
+          <include name="setUp"/>
         </methods>
-      </class> <!-- com.tutorialsninjademo.qa.testcases.ShoppingCartTest -->
+      </class> <!-- com.tutorialsninjademo.qa.testcases.AddToCartWithoutLoginTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
