@@ -6,13 +6,20 @@
   </listeners>
   <test thread-count="5" name="TutorialsNinja Test Cases(failed)">
     <classes>
-      <class name="com.tutorialsninjademo.qa.testcases.SearchTest">
+      <class name="com.tutorialsninjademo.qa.testcases.LoginTest">
+        <methods>
+          <include name="verifyUIOfLoginPage"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.tutorialsninjademo.qa.testcases.LoginTest -->
+      <class name="com.tutorialsninjademo.qa.testcases.LogoutTest">
         <methods>
           <include name="setUp"/>
-          <include name="verifySearchFunctionalityUI"/>
           <include name="tearDown"/>
+          <include name="verifyLoginAfterLogout"/>
         </methods>
-      </class> <!-- com.tutorialsninjademo.qa.testcases.SearchTest -->
+      </class> <!-- com.tutorialsninjademo.qa.testcases.LogoutTest -->
       <class name="com.tutorialsninjademo.qa.testcases.RegisterTest">
         <methods>
           <include name="verifyRegisteringAnAccountWithExistingEmailId"/>
@@ -26,20 +33,18 @@
           <include name="verifyRegisteringAnAccountWithoutProvidingAnyDetails"/>
         </methods>
       </class> <!-- com.tutorialsninjademo.qa.testcases.RegisterTest -->
-      <class name="com.tutorialsninjademo.qa.testcases.LoginTest">
+      <class name="com.tutorialsninjademo.qa.testcases.SearchTest">
         <methods>
-          <include name="verifyLoginWithInvalidCredentials"/>
-          <include name="verifyUIOfLoginPage"/>
-          <include name="verifyLoginWithValidCredentials"/>
-          <include name="verifyLoginWithoutProvidingCredentials"/>
-          <include name="verifyLoginWithValidEmailAndInvalidPassword"/>
-          <include name="verifyLoginWithInvalidEmailAndValidPassword"/>
-          <include name="tearDown"/>
           <include name="setUp"/>
-          <include name="verifyDifferentWaysOfNavigatingToLoginpage"/>
-          <include name="verifyBreadCrumbPageHeadingTitleAndPageURLOfLoginPage"/>
+          <include name="verifySearchFunctionalityUsageUsingkeyboardKeys"/>
+          <include name="verifySearchFunctionalityInAllEnvironments"/>
+          <include name="verifyScrollToElementUsingJavaScriptExecutor"/>
+          <include name="verifySearchFunctionalityUI"/>
+          <include name="tearDown"/>
+          <include name="verifyScrollToElementUsingActionsClass"/>
+          <include name="verifySearchFunctionalityHeadingURLAndTitle"/>
         </methods>
-      </class> <!-- com.tutorialsninjademo.qa.testcases.LoginTest -->
+      </class> <!-- com.tutorialsninjademo.qa.testcases.SearchTest -->
     </classes>
   </test> <!-- TutorialsNinja Test Cases(failed) -->
 </suite> <!-- Failed suite [TutorialsNinja Demo Automation Suite] -->

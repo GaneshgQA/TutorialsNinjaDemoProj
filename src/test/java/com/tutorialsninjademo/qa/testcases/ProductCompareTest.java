@@ -48,7 +48,7 @@ public class ProductCompareTest extends Base {
 		driver = initializeBrowserAndOpenApplicationURL(prop.getProperty("browser"));
 	}
 
-	@Test(priority = 1)
+	@Test(priority = 1, groups = "regression")
 	public void verifyAddingProductForComparisonFromProductDisplayPage() {
 
 		homePage = new HomePage(driver);

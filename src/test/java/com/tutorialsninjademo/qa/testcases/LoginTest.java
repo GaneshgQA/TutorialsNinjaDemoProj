@@ -44,7 +44,7 @@ public class LoginTest extends Base {
 
 	}
 
-	@Test(priority = 1, dataProvider = "ValidCredentialSupplier")
+	@Test(priority = 1, dataProvider = "ValidCredentialSupplier", groups = "regression")
 	public void verifyLoginWithValidCredentials(String email, String password) {
 
 		loginPage = new LoginPage(driver);

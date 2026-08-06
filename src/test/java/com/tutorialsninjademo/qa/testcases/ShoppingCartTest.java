@@ -356,7 +356,7 @@ public class ShoppingCartTest extends Base {
 	/**
 	 * Test to verify complete checkout flow
 	 */
-	@Test(priority = 21)
+	@Test(priority = 21, groups = "regression")
 	public void verifyCompleteCheckoutFlow() {
 		navigateToShoppingCart();
 

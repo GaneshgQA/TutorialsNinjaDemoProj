@@ -11,8 +11,11 @@
       <class name="com.tutorialsninjademo.qa.testcases.LoginTest"/>
       <class name="com.tutorialsninjademo.qa.testcases.SearchTest"/>
       <class name="com.tutorialsninjademo.qa.testcases.ProductCompareTest"/>
-      <class name="com.tutorialsninjademo.qa.testcases.LogoutTest"/>
-      
+      <class name="com.tutorialsninjademo.qa.testcases.AddToCartWithoutLoginTest"/>
+      <class name="com.tutorialsninjademo.qa.testcases.ShoppingCartTest"/>
+      <class name="com.tutorialsninjademo.qa.testcases.SpecialOffersTest"/>
+      <class name="com.tutorialsninjademo.qa.testcases.SiteMapPageTest"/>
+      <class name="com.tutorialsninjademo.qa.testcases.LogoutTest"/>     
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

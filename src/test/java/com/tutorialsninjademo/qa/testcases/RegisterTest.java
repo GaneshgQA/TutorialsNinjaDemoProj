@@ -50,7 +50,7 @@ public class RegisterTest extends Base {
 
 	}
 
-	@Test(priority = 1)
+	@Test(priority = 1, groups = "regression")
 	public void verifyRegisteringAnAccountWithMandatoryFields() {
 
 		registerPage = new RegisterPage(driver);

@@ -45,7 +45,7 @@ public class LogoutTest extends Base {
 
 	}
 
-	@Test(priority = 1)
+	@Test(priority = 1, groups = "regression")
 	public void verifyLoggingOutUsingMyAccountDropMenu() throws InterruptedException {
 
 		loginPage = new LoginPage(driver);

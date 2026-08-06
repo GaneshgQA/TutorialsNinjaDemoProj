@@ -33,7 +33,7 @@ public class AddToCartWithoutLoginTest extends Base {
 	}
 
 
-	@Test(priority = 1)
+	@Test(priority = 1,groups = "regression" )
 	public void verifyAddingMacbookToCartWithoutLogin() {
 		Assert.assertTrue(addToCartWithoutLoginPage.isMacbookProductDisplayed(),
 				"MacBook product is not displayed on the home page");
